@@ -34,21 +34,23 @@ table {
   border-spacing: 0; }
 
 .nav-bar {
+  font-family: "Helvetica";
   height: 50px;
   width: 100%;
   background-color: white;
   color: white;
   display: flex;
   align-items: center;
-  border-bottom: .1px solid #ccc; }
+  border-bottom: .1px solid #ccc;
+  padding-right: 5%; }
   .nav-bar .nav-bar-right {
     list-style: none;
     display: flex;
     width: 20%;
     text-align: right;
-    padding-right: 5%; }
+    padding-left: 10%; }
     .nav-bar .nav-bar-right a {
-      width: 33%; }
+      width: 25%; }
   .nav-bar .nav-bar-left {
     list-style: none;
     flex-direction: row;
@@ -79,8 +81,10 @@ header {
       font-size: 4em;
       color: white;
       font-style: italic;
-      font-family: "helvetica";
-      font-weight: bolder; }
+      font-weight: bolder;
+      transition: text-shadow 2s; }
+    header .header-content h1:hover {
+      text-shadow: 1px 1px rgba(255, 121, 97, 0.5), 2px 2px rgba(255, 121, 97, 0.50056), 3px 3px rgba(255, 121, 96, 0.50111), 4px 4px rgba(255, 121, 96, 0.50167), 5px 5px rgba(255, 122, 96, 0.50222), 6px 6px rgba(255, 122, 95, 0.50278), 7px 7px rgba(255, 122, 95, 0.50333), 8px 8px rgba(255, 122, 95, 0.50389), 9px 9px rgba(255, 122, 94, 0.50444), 10px 10px rgba(255, 122, 94, 0.505), 11px 11px rgba(255, 122, 94, 0.50556), 12px 12px rgba(255, 123, 94, 0.50611), 13px 13px rgba(255, 123, 93, 0.50667), 14px 14px rgba(255, 123, 93, 0.50722), 15px 15px rgba(255, 123, 93, 0.50778), 16px 16px rgba(255, 123, 92, 0.50833), 17px 17px rgba(255, 123, 92, 0.50889), 18px 18px rgba(255, 123, 92, 0.50944), 19px 19px rgba(255, 124, 91, 0.51), 20px 20px rgba(255, 124, 91, 0.51056), 21px 21px rgba(255, 124, 91, 0.51111), 22px 22px rgba(255, 124, 91, 0.51167), 23px 23px rgba(255, 124, 90, 0.51222), 24px 24px rgba(255, 124, 90, 0.51278), 25px 25px rgba(255, 124, 90, 0.51333), 26px 26px rgba(255, 124, 89, 0.51389), 27px 27px rgba(255, 125, 89, 0.51444), 28px 28px rgba(255, 125, 89, 0.515), 29px 29px rgba(255, 125, 88, 0.51556), 30px 30px rgba(255, 125, 88, 0.51611), 31px 31px rgba(255, 125, 88, 0.51667), 32px 32px rgba(255, 125, 88, 0.51722), 33px 33px rgba(255, 125, 87, 0.51778); }
     header .header-content h2 {
       font-size: 2em;
       margin: 50px;
@@ -93,14 +97,17 @@ header {
       background: transparent;
       color: white;
       margin: auto;
-      padding: auto; }
+      padding: auto;
+      font-size: 1.5em;
+      font-weight: 200;
+      transition: color .5s, background-color .5s; }
     header .header-content button:hover {
       border: 1px solid white;
       border-radius: 30px;
       height: 60px;
       width: 300px;
       background: white;
-      color: blue;
+      color: #62a0dc;
       margin: auto;
       padding: auto; }
     header .header-content hr {
@@ -241,16 +248,22 @@ header {
     background: transparent;
     color: white;
     margin: auto;
-    padding: auto; }
+    padding: auto;
+    font-size: 1.5em;
+    font-weight: 200;
+    transition: color .5s, background-color .5s; }
   .contact button:hover {
     border: 1px solid white;
     border-radius: 30px;
     height: 60px;
     width: 300px;
     background: white;
-    color: blue;
+    color: #62a0dc;
     margin: auto;
     padding: auto; }
+  .contact h3 {
+    font-size: 1.5em;
+    font-weight: 200; }
 
 footer {
   width: 100%;
@@ -259,7 +272,37 @@ footer {
   background-color: #62a0dc;
   margin-top: 5%; }
 
+/* =======================
+   >>>>  MEDIA QUERY  <<<<
+   ======================= */
 @media screen and (max-width: 550px) {
+  .nav-bar {
+    font-family: "Helvetica";
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: .1px solid #ccc;
+    padding-right: 5%; }
+    .nav-bar .nav-bar-right {
+      list-style: none;
+      display: flex;
+      width: 20%;
+      text-align: right;
+      padding-left: 10%; }
+      .nav-bar .nav-bar-right a {
+        width: 25%; }
+    .nav-bar .nav-bar-left {
+      list-style: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      width: 65%;
+      padding-left: 5%; }
+
   .about {
     display: block;
     background: transparent; }
