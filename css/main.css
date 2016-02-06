@@ -217,11 +217,40 @@ header {
       height: 90%; }
 
 .contact {
+  font-family: "Helvetica";
+  color: white;
   width: 91.3%;
   margin: auto;
   height: 250px;
-  background-color: white;
-  margin-top: 5%; }
+  background: linear-gradient(to right, transparent, #62a0dc);
+  /* Standard syntax */
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .contact .call-to-action {
+    width: 50%;
+    background-color: transparent; }
+  .contact .login-to-app {
+    width: 50%; }
+  .contact button {
+    border: 1px solid white;
+    border-radius: 30px;
+    height: 60px;
+    width: 300px;
+    background: transparent;
+    color: white;
+    margin: auto;
+    padding: auto; }
+  .contact button:hover {
+    border: 1px solid white;
+    border-radius: 30px;
+    height: 60px;
+    width: 300px;
+    background: white;
+    color: blue;
+    margin: auto;
+    padding: auto; }
 
 footer {
   width: 100%;
