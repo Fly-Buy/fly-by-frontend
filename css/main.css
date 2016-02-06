@@ -41,24 +41,18 @@ table {
   color: white;
   display: flex;
   align-items: center;
-  border-bottom: .1px solid #ccc;
-  padding-right: 5%; }
+  border-bottom: .1px solid #ccc; }
   .nav-bar .nav-bar-right {
     list-style: none;
     display: flex;
     width: 20%;
-    text-align: right;
-    padding-left: 10%; }
-    .nav-bar .nav-bar-right a {
-      width: 25%; }
+    text-align: right; }
   .nav-bar .nav-bar-left {
     list-style: none;
     flex-direction: row;
     flex-wrap: wrap;
     display: flex;
-    align-items: center;
-    width: 65%;
-    padding-left: 5%; }
+    align-items: center; }
 
 header {
   display: flex;
@@ -270,7 +264,9 @@ footer {
   margin: auto;
   height: 350px;
   background-color: #62a0dc;
-  margin-top: 5%; }
+  margin-top: 5%;
+  display: flex;
+  align-items: center; }
 
 /* =======================
    >>>>  MEDIA QUERY  <<<<

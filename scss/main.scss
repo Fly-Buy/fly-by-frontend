@@ -13,15 +13,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   display: flex;
   align-items: center;
   border-bottom: .1px solid #ccc;
-  padding-right:5%;
+  // padding-right:5%;
   .nav-bar-right {
     list-style: none;
     display: flex;
     width:20%;
     text-align: right;
-    padding-left: 10%;
+    // padding-left: 10%;
     a {
-      width: 25%;
+      // width: 25%;
     }
   }
   .nav-bar-left {
@@ -30,8 +30,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     flex-wrap: wrap;
     display: flex;
     align-items: center;
-    width:65%;
-    padding-left:5%;
+    // width:65%;
+    // padding-left:5%;
   }
 }
 
@@ -286,6 +286,8 @@ footer {
   height:350px;
   background-color: rgba(98,160,220, 1);
   margin-top: 5%;
+  display: flex;
+  align-items: center;
 }
 
 /* =======================
