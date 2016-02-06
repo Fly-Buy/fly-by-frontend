@@ -217,9 +217,18 @@ header {
       height: 90%; }
 
 .contact {
-  width: 90%;
-  margin: 5%;
-  height: 300; }
+  width: 91.3%;
+  margin: auto;
+  height: 250px;
+  background-color: white;
+  margin-top: 5%; }
+
+footer {
+  width: 100%;
+  margin: auto;
+  height: 350px;
+  background-color: #62a0dc;
+  margin-top: 5%; }
 
 @media screen and (max-width: 550px) {
   .about {
