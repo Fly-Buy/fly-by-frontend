@@ -33,8 +33,37 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.nav-bar {
+body {
   font-family: "Helvetica";
+  background: linear-gradient(to bottom, transparent, #424242); }
+
+button {
+  border: 1px solid white;
+  border-radius: 30px;
+  height: 60px;
+  width: 300px;
+  background: transparent;
+  color: white;
+  margin: auto;
+  padding: auto;
+  font-size: 1.5em;
+  font-weight: 200;
+  transition: color .5s, background-color .5s; }
+
+button:hover {
+  border: 1px solid white;
+  border-radius: 30px;
+  height: 60px;
+  width: 300px;
+  background: white;
+  color: #62a0dc;
+  margin: auto;
+  padding: auto; }
+
+h3 {
+  font-size: 1.5em; }
+
+.nav-bar {
   height: 50px;
   width: 100%;
   background-color: white;
@@ -64,13 +93,12 @@ header {
     top: 0;
     left: 0;
     z-index: -1;
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%; }
+    height: 100vh;
+    width: 100%;
+    opacity: .5; }
   header .header-content {
     display: flex;
-    flex-direction: column;
-    font-family: "helvetica"; }
+    flex-direction: column; }
     header .header-content h1 {
       font-size: 4em;
       color: white;
@@ -83,27 +111,6 @@ header {
       font-size: 2em;
       margin: 50px;
       color: white; }
-    header .header-content button {
-      border: 1px solid white;
-      border-radius: 30px;
-      height: 60px;
-      width: 300px;
-      background: transparent;
-      color: white;
-      margin: auto;
-      padding: auto;
-      font-size: 1.5em;
-      font-weight: 200;
-      transition: color .5s, background-color .5s; }
-    header .header-content button:hover {
-      border: 1px solid white;
-      border-radius: 30px;
-      height: 60px;
-      width: 300px;
-      background: white;
-      color: #62a0dc;
-      margin: auto;
-      padding: auto; }
     header .header-content hr {
       height: 1px;
       background-color: white;
@@ -118,21 +125,21 @@ header {
   background: transparent;
   display: flex;
   align-items: center;
-  width: 74.5%;
+  width: 74%;
   justify-content: center;
-  font-family: "helvetica";
   margin: auto; }
   .about .about-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
+    width: 30.5%;
     background-color: white;
     height: 300px;
     margin: auto;
     padding: auto;
-    font-weight: normal; }
+    font-weight: normal;
+    transition: border-radius .5s; }
     .about .about-content p {
       font-weight: lighter;
       line-height: 1.5em;
@@ -144,14 +151,9 @@ header {
   display: flex;
   flex-direction: column;
   width: 90%;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
   margin-top: 5%;
-  font-family: "Helvetica";
   margin: auto; }
   .product-features h3 {
-    font-size: 1.5em;
     padding: 5%; }
   .product-features p {
     padding-left: 5%;
@@ -160,10 +162,9 @@ header {
     line-height: 1.5em; }
   .product-features .feature-one {
     height: 200px;
-    background-color: white;
     width: 80%;
+    background-color: transparent;
     margin: auto;
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -174,16 +175,11 @@ header {
       height: 90%;
       width: 90%;
       background-image: url("../public/images/graph.png"); }
-    .product-features .feature-one .feature-text {
-      width: 50%;
-      background-color: white;
-      height: 90%; }
   .product-features .feature-two {
     height: 200px;
     background-color: white;
     width: 80%;
     margin: auto;
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -194,16 +190,11 @@ header {
       height: 90%;
       width: 90%;
       background-image: url("../public/images/d3.png"); }
-    .product-features .feature-two .feature-text {
-      width: 50%;
-      background-color: white;
-      height: 90%; }
   .product-features .feature-three {
     height: 200px;
     background-color: white;
     width: 80%;
     margin: auto;
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -214,22 +205,19 @@ header {
       height: 90%;
       width: 90%;
       background-image: url("../public/images/d3_3.png"); }
-    .product-features .feature-three .feature-text {
-      width: 50%;
-      background-color: white;
-      height: 90%; }
+
+.feature-text {
+  width: 50%;
+  background-color: white;
+  height: 90%; }
 
 .contact {
-  font-family: "Helvetica";
   color: white;
   width: 72%;
   margin: auto;
   height: 250px;
   background: linear-gradient(to right, transparent, #62a0dc);
-  /* Standard syntax */
-  margin-top: 5%;
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin: auto;
   padding: auto;
@@ -239,29 +227,7 @@ header {
     background-color: transparent; }
   .contact .login-to-app {
     width: 50%; }
-  .contact button {
-    border: 1px solid white;
-    border-radius: 30px;
-    height: 60px;
-    width: 300px;
-    background: transparent;
-    color: white;
-    margin: auto;
-    padding: auto;
-    font-size: 1.5em;
-    font-weight: 200;
-    transition: color .5s, background-color .5s; }
-  .contact button:hover {
-    border: 1px solid white;
-    border-radius: 30px;
-    height: 60px;
-    width: 300px;
-    background: white;
-    color: #62a0dc;
-    margin: auto;
-    padding: auto; }
   .contact h3 {
-    font-size: 1.5em;
     font-weight: 200; }
 
 footer {
@@ -276,41 +242,13 @@ footer {
 /* ====================================
         >>>>  MEDIA QUERY  <<<<
    ==================================== */
-@media screen and (max-width: 550px) {
-  .nav-bar {
-    font-family: "Helvetica";
-    height: 50px;
-    width: 100%;
-    background-color: white;
-    color: white;
-    display: flex;
-    align-items: center;
-    border-bottom: .1px solid #ccc;
-    padding-right: 5%; }
-    .nav-bar .nav-bar-right {
-      list-style: none;
-      display: flex;
-      width: 20%;
-      text-align: right;
-      padding-left: 10%; }
-      .nav-bar .nav-bar-right a {
-        width: 25%; }
-    .nav-bar .nav-bar-left {
-      list-style: none;
-      flex-direction: row;
-      flex-wrap: wrap;
-      display: flex;
-      align-items: center;
-      width: 65%;
-      padding-left: 5%; }
-
+@media screen and (max-width: 650px) {
   .about {
     display: block;
-    background: transparent; }
+    background: transparent;
+    width: 100%; }
     .about .about-content {
       width: 90%;
-      margin: 5%; }
-    .about h3 {
-      font-size: 1.5em; } }
+      margin: 5%; } }
 
 /*# sourceMappingURL=main.css.map */
