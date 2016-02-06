@@ -281,11 +281,33 @@ header {
 ////////////////////////////////////////////////// FOOTER
 
 footer {
+  font-family: "Helvetica";
+  color:white;
   width: 100%;
   margin:auto;
   height:350px;
   background-color: rgba(98,160,220, 1);
   margin-top: 5%;
+  display: flex;
+  align-items: center;
+  .footer-left {
+    width:33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-center {
+    width:33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-right {
+    width:33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* =======================
