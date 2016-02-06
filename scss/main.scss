@@ -1,0 +1,274 @@
+//////////////////
+//////////////////////////////
+///////////////////////////////////////////// GLOBAL RESETS
+///////////////////////////
+/////////////
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}a,a:before,a:visited{text-decoration:none;color:#000}.nav-text{color:#424242}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1;text-align:center}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+//////////////////
+//////////////////////////////
+//////////////////////////////////////////// NAVBAR
+///////////////////////////
+/////////////
+
+.nav-bar {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-bottom: .1px solid #ccc;
+  .nav-bar-right {
+    list-style: none;
+    display: flex;
+    width:20%;
+    text-align: right;
+    padding-right:5%;
+    a {
+      width: 33%;
+    }
+  }
+  .nav-bar-left {
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    width:65%;
+    padding-left:5%;
+  }
+}
+
+//////////////////
+//////////////////////////////
+//////////////////////////////////////////// HERO SPOT
+///////////////////////////
+////////////////
+
+header {
+  display:flex;
+  align-items: center;
+  height:50vh;
+  justify-content: center;
+  .hero-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .header-content{
+    display: flex;
+    flex-direction: column;
+    font-family: "helvetica";
+    h1 {
+      font-size:4em;
+      color:white;
+      font-style: italic;
+      font-family: "helvetica";
+      font-weight: bolder;
+    }
+    h2 {
+      font-size: 2em;
+      margin: 50px;
+      color: white;
+    }
+    button {
+      border: 1px solid white;
+      border-radius: 30px;
+      height: 60px;
+      width: 300px;
+      background: transparent;
+      color: white;
+      margin: auto;
+      padding:auto;
+    }
+    button:hover {
+      border: 1px solid white;
+      border-radius: 30px;
+      height: 60px;
+      width: 300px;
+      background: white;
+      color: blue;
+      margin: auto;
+      padding:auto;
+    }
+    hr {
+      height: 1px;
+      background-color: white;
+      width: 50%;
+      margin:auto;
+      padding:auto;
+      border: none;
+      margin-top: 5%;
+    }
+  }
+}
+
+//////////////////
+////////////////////////////
+/////////////////////////////////////////// ABOUT SECTION
+///////////////////////////
+////////////////
+
+.about {
+  height: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  width:100%;
+  justify-content: center;
+  font-family: "helvetica";
+  .about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 24.6%;
+    background-color: white;
+    height: 300px;
+    margin:auto;
+    padding:auto;
+    font-weight: normal;;
+    p {
+      padding: 10%;
+      font-weight: lighter;
+      line-height: 1.5em;
+    }
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+//////////////////
+////////////////////////////
+//////////////////////////////////////////// PRODUCT SECTION
+///////////////////////////
+////////////////
+
+.product-features {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  margin-top: 5%;
+  font-family: "Helvetica";
+  h3 {
+    font-size: 1.5em;
+    padding: 5%;
+  }
+  p {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: lighter;
+    line-height: 1.5em;
+  }
+  .feature-one {
+    height: 200px;
+    background-color: white;
+    width: 91.3%;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top:2%;
+    .feature-image {
+      width: 50%;
+      background-color: white;
+      height:90%;
+      width:90%;
+      background-image: url("../public/images/graph.png");
+    }
+    .feature-text {
+      width: 50%;
+      background-color: white;
+      height:90%;
+    }
+  }
+  .feature-two {
+    height:200px;
+    background-color: white;
+    width: 91.3%;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top:2%;
+    .feature-image {
+      width: 50%;
+      background-color: white;
+      height:90%;
+      width:90%;
+      background-image: url("../public/images/d3.png");
+    }
+    .feature-text {
+      width: 50%;
+      background-color: white;
+      height:90%;
+    }
+  }
+  .feature-three {
+    height:200px;
+    background-color: white;
+    width: 91.3%;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top:2%;
+    .feature-image {
+      width: 50%;
+      background-color: white;
+      height:90%;
+      width:90%;
+      background-image: url("../public/images/d3_3.png");
+    }
+    .feature-text {
+      width: 50%;
+      background-color: white;
+      height:90%;
+    }
+  }
+}
+
+//////////////////
+////////////////////////////
+////////////////////////////////////////////////// CONTACT SECTION
+///////////////////////////
+////////////////
+
+.contact {
+  width:90%;
+  margin:5%;
+  height:300
+}
+
+//////////////////
+////////////////////////////
+////////////////////////////////////////////////// MEDIA QUERY
+///////////////////////////
+////////////////
+
+@media screen and (max-width: 550px) {
+  .about {
+    display: block;
+    background: transparent;
+    .about-content {
+      width:90%;
+      margin:5%;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+}
