@@ -118,36 +118,38 @@ header {
   background: transparent;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 74.5%;
   justify-content: center;
-  font-family: "helvetica"; }
+  font-family: "helvetica";
+  margin: auto; }
   .about .about-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 24.6%;
+    width: 30%;
     background-color: white;
     height: 300px;
     margin: auto;
     padding: auto;
     font-weight: normal; }
     .about .about-content p {
-      padding: 10%;
       font-weight: lighter;
-      line-height: 1.5em; }
+      line-height: 1.5em;
+      margin: 10%; }
   .about h3 {
     font-size: 1.5em; }
 
 .product-features {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   background: transparent;
   margin-top: 5%;
-  font-family: "Helvetica"; }
+  font-family: "Helvetica";
+  margin: auto; }
   .product-features h3 {
     font-size: 1.5em;
     padding: 5%; }
@@ -159,7 +161,7 @@ header {
   .product-features .feature-one {
     height: 200px;
     background-color: white;
-    width: 91.3%;
+    width: 80%;
     margin: auto;
     justify-content: center;
     align-items: center;
@@ -179,7 +181,7 @@ header {
   .product-features .feature-two {
     height: 200px;
     background-color: white;
-    width: 91.3%;
+    width: 80%;
     margin: auto;
     justify-content: center;
     align-items: center;
@@ -199,7 +201,7 @@ header {
   .product-features .feature-three {
     height: 200px;
     background-color: white;
-    width: 91.3%;
+    width: 80%;
     margin: auto;
     justify-content: center;
     align-items: center;
@@ -220,7 +222,7 @@ header {
 .contact {
   font-family: "Helvetica";
   color: white;
-  width: 91.3%;
+  width: 72%;
   margin: auto;
   height: 250px;
   background: linear-gradient(to right, transparent, #62a0dc);
@@ -228,7 +230,10 @@ header {
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  margin: auto;
+  padding: auto;
+  margin-top: 5%; }
   .contact .call-to-action {
     width: 50%;
     background-color: transparent; }
@@ -268,9 +273,9 @@ footer {
   display: flex;
   align-items: center; }
 
-/* =======================
-   >>>>  MEDIA QUERY  <<<<
-   ======================= */
+/* ====================================
+        >>>>  MEDIA QUERY  <<<<
+   ==================================== */
 @media screen and (max-width: 550px) {
   .nav-bar {
     font-family: "Helvetica";
