@@ -34,6 +34,12 @@ button:hover {
 h3 {
   font-size: 1.5em;
 }
+.brand-svg {
+  height:20%;width:20%;margin:auto;margin-top:5%;
+}
+.chair-svg {
+  height:50%;width:50%;margin:auto;margin-top:5%;
+}
 
 //////////////////////////////////////////// NAVBAR
 
@@ -72,14 +78,11 @@ header {
   align-items: center;
   height:50vh;
   justify-content: center;
-
   .hero-image {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
-    // min-width: 100%;
-    // min-height: 100%;
     height: 100vh;
     width:100%;
     opacity: .1;
@@ -102,15 +105,15 @@ header {
       margin: 50px;
       color: white;
     }
-    hr {
-      height: 1px;
-      background-color: white;
-      width: 50%;
-      margin:auto;
-      padding:auto;
-      border: none;
-      margin-top: 5%;
-    }
+    // hr {
+    //   height: 1px;
+    //   background-color: white;
+    //   width: 50%;
+    //   margin:auto;
+    //   padding:auto;
+    //   border: none;
+    //   margin-top: 5%;
+    // }
   }
 }
 
@@ -139,11 +142,13 @@ header {
     p {
       font-weight: lighter;
       line-height: 1.5em;
-      margin: 10%;
+      margin: 7%;
     }
   }
   h3 {
     font-size: 1.5em;
+    margin: 7%;
+    font-weight: 300;
   }
 }
 
@@ -222,6 +227,10 @@ header {
   width: 50%;
   background-color: white;
   height:90%;
+  p {
+    padding-left:10%;
+    padding-right:10%;
+  }
 }
 
 ////////////////////////////////////////////////// CONTACT SECTION
@@ -267,6 +276,13 @@ footer {
 
 @media screen and (max-width: 650px) {
 
+  .brand-svg {
+    height:40%;width:40%;margin:auto;margin-top:5%;
+  }
+
+  .chair-svg {
+    height:90%;width:90%;margin:auto;margin-top:5%;
+  }
 
 //////////////////////////////////////  NAVBAR
   .nav-bar {

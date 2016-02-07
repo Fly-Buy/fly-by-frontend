@@ -63,6 +63,18 @@ button:hover {
 h3 {
   font-size: 1.5em; }
 
+.brand-svg {
+  height: 20%;
+  width: 20%;
+  margin: auto;
+  margin-top: 5%; }
+
+.chair-svg {
+  height: 50%;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%; }
+
 .nav-bar {
   height: 50px;
   width: 100%;
@@ -115,14 +127,6 @@ header {
       font-size: 2em;
       margin: 50px;
       color: white; }
-    header .header-content hr {
-      height: 1px;
-      background-color: white;
-      width: 50%;
-      margin: auto;
-      padding: auto;
-      border: none;
-      margin-top: 5%; }
 
 .about {
   height: 100%;
@@ -147,9 +151,11 @@ header {
     .about .about-content p {
       font-weight: lighter;
       line-height: 1.5em;
-      margin: 10%; }
+      margin: 7%; }
   .about h3 {
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    margin: 7%;
+    font-weight: 300; }
 
 .product-features {
   display: flex;
@@ -214,6 +220,9 @@ header {
   width: 50%;
   background-color: white;
   height: 90%; }
+  .feature-text p {
+    padding-left: 10%;
+    padding-right: 10%; }
 
 .contact {
   color: white;
@@ -247,6 +256,18 @@ footer {
         >>>>  MEDIA QUERY  <<<<
    ==================================== */
 @media screen and (max-width: 650px) {
+  .brand-svg {
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    margin-top: 5%; }
+
+  .chair-svg {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    margin-top: 5%; }
+
   .nav-bar .nav-bar-right {
     width: 50%;
     margin-left: 10%; }
