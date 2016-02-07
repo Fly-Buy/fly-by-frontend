@@ -247,8 +247,24 @@ footer {
   align-items: center; }
 
 /* ====================================
-        >>>>  MEDIA QUERY  <<<<
+        >>>>  MEDIA QUERIES  <<<<
    ==================================== */
+@media screen and (max-width: 850px) {
+  .contact {
+    color: white;
+    width: 72%;
+    margin: auto;
+    height: 200px;
+    background: linear-gradient(to right, transparent, #62a0dc);
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%; }
+    .contact h3 {
+      font-weight: 200;
+      padding: 10%; }
+    .contact button {
+      width: 90%;
+      font-size: 1em; } }
 @media screen and (max-width: 650px) {
   .brand-svg {
     height: 40%;
@@ -299,6 +315,9 @@ footer {
         background-image: url("../public/images/d3_3.png"); }
 
   .feature-text {
+    width: 90%; }
+
+  .contact {
     width: 90%; } }
 
 /*# sourceMappingURL=main.css.map */
