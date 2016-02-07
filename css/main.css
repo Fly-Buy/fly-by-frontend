@@ -35,7 +35,7 @@ table {
 
 body {
   font-family: "Helvetica";
-  background: linear-gradient(to bottom, transparent, #424242); }
+  background: linear-gradient(to bottom, #62a0dc, #6ce4b0); }
 
 button {
   border: 1px solid white;
@@ -95,7 +95,7 @@ header {
     z-index: -1;
     height: 100vh;
     width: 100%;
-    opacity: .5; }
+    opacity: .1; }
   header .header-content {
     display: flex;
     flex-direction: column; }
@@ -163,7 +163,7 @@ header {
   .product-features .feature-one {
     height: 200px;
     width: 80%;
-    background-color: transparent;
+    background: white;
     margin: auto;
     align-items: center;
     display: flex;
