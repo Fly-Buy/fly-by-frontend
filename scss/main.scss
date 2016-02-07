@@ -268,6 +268,20 @@ footer {
 @media screen and (max-width: 650px) {
 
 
+//////////////////////////////////////  NAVBAR
+  .nav-bar {
+    .nav-bar-right {
+      width:50%;
+      margin-left:10%;
+      a {
+      }
+    }
+    .nav-bar-left {
+      margin-left:10%;
+      width:50%;
+    }
+  }
+
   .about {
     display: block;
     background: transparent;
@@ -278,33 +292,82 @@ footer {
     }
   }
 
-  .nav-bar {
-    height: 50px;
-    width: 100%;
-    background-color: white;
+//////////////////////////////////////  PRODUCT FEATURES
+
+  .product-features {
     display: flex;
-    align-items: center;
-    border-bottom: .1px solid #ccc;
-    .nav-bar-right {
-      list-style: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%;
+    margin: auto;
+    h3 {
+      padding: 5%;
+    }
+    p {
+      padding-left: 5%;
+      padding-right: 5%;
+      font-weight: lighter;
+      line-height: 1.5em;
+    }
+    .feature-one {
+      height: 200px;
+      width: 90%;
+      background: white;
+      margin:auto;
+      align-items: center;
       display: flex;
-      width:50%;
-      text-align: right;
-      margin-left:10%;
-      a {
-        margin: 4%;
+      flex-direction: row;
+      margin-top:2%;
+      .feature-image {
+        width: 50%;
+        background-color: white;
+        height:90%;
+        width:90%;
+        background-image: url("../public/images/graph.png");
       }
     }
-    .nav-bar-left {
-      margin-left:10%;
-      width:50%;
-      list-style: none;
-      flex-direction: row;
-      flex-wrap: wrap;
-      display: flex;
+    .feature-two {
+      height:200px;
+      background-color: white;
+      width:90%;
+      margin:auto;
       align-items: center;
+      display: flex;
+      flex-direction: row;
+      margin-top:2%;
+      .feature-image {
+        width: 50%;
+        background-color: white;
+        height:90%;
+        width:90%;
+        background-image: url("../public/images/d3.png");
+      }
+    }
+    .feature-three {
+      height:200px;
+      background-color: white;
+      width: 90%;
+      margin:auto;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      margin-top:2%;
+      .feature-image {
+        width: 50%;
+        background-color: white;
+        height:90%;
+        width:90%;
+        background-image: url("../public/images/d3_3.png");
+      }
     }
   }
+
+  .feature-text {
+    width: 50%;
+    background-color: white;
+    height:90%;
+  }
+
 
 
 }
