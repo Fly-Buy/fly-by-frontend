@@ -67,7 +67,6 @@ h3 {
   height: 50px;
   width: 100%;
   background-color: white;
-  color: white;
   display: flex;
   align-items: center;
   border-bottom: .1px solid #ccc; }
@@ -75,8 +74,13 @@ h3 {
     list-style: none;
     display: flex;
     width: 20%;
+    margin-right: 10%;
     text-align: right; }
+    .nav-bar .nav-bar-right a {
+      margin: 4%; }
   .nav-bar .nav-bar-left {
+    margin-left: 15%;
+    width: 70%;
     list-style: none;
     flex-direction: row;
     flex-wrap: wrap;
@@ -249,6 +253,30 @@ footer {
     width: 100%; }
     .about .about-content {
       width: 90%;
-      margin: 5%; } }
+      margin: 5%; }
+
+  .nav-bar {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: .1px solid #ccc; }
+    .nav-bar .nav-bar-right {
+      list-style: none;
+      display: flex;
+      width: 50%;
+      text-align: right;
+      margin-left: 10%; }
+      .nav-bar .nav-bar-right a {
+        margin: 4%; }
+    .nav-bar .nav-bar-left {
+      margin-left: 10%;
+      width: 50%;
+      list-style: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center; } }
 
 /*# sourceMappingURL=main.css.map */
