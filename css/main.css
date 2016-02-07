@@ -274,55 +274,59 @@ footer {
       padding-left: 5%;
       padding-right: 5%;
       font-weight: lighter;
+      font-size: 1em;
       line-height: 1.5em; }
     .product-features .feature-one {
-      height: 200px;
+      height: 250px;
       width: 90%;
       background: white;
       margin: auto;
       align-items: center;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       margin-top: 2%; }
       .product-features .feature-one .feature-image {
-        width: 50%;
+        width: 90%;
         background-color: white;
         height: 90%;
         width: 90%;
+        margin: 5%;
         background-image: url("../public/images/graph.png"); }
     .product-features .feature-two {
-      height: 200px;
+      height: 250px;
       background-color: white;
       width: 90%;
       margin: auto;
       align-items: center;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       margin-top: 2%; }
       .product-features .feature-two .feature-image {
         width: 50%;
         background-color: white;
         height: 90%;
         width: 90%;
+        margin: 5%;
         background-image: url("../public/images/d3.png"); }
     .product-features .feature-three {
-      height: 200px;
+      height: 250px;
       background-color: white;
       width: 90%;
       margin: auto;
       align-items: center;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       margin-top: 2%; }
       .product-features .feature-three .feature-image {
         width: 50%;
         background-color: white;
         height: 90%;
         width: 90%;
+        margin: 5%;
         background-image: url("../public/images/d3_3.png"); }
 
   .feature-text {
-    width: 50%;
+    width: 90%;
     background-color: white;
     height: 90%; } }
 
