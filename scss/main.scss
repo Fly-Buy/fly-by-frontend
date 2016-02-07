@@ -252,7 +252,23 @@ footer {
   background-color: rgba(98,160,220, 1);
   margin-top: 5%;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  .footer-left {
+    width: 30%;
+    margin:auto;
+    color: #175982;
+  }
+  .footer-right {
+    width: 30%;
+    margin:auto;
+    color: white;
+  }
+  .footer-center {
+    width: 30%;
+    margin:auto;
+    color: #175982;
+  }
 }
 
 /* ====================================
@@ -293,6 +309,7 @@ footer {
   }
 
 //////////////////////////////////////  NAVBAR
+
   .nav-bar {
     .nav-bar-right {
       width:50%;
@@ -353,8 +370,25 @@ footer {
   .feature-text {
     width: 90%;
   }
+
   ////////////////////////////////////// CONTACT SECTION
+
   .contact {
     width: 90%;
+  }
+
+  ////////////////////////////////////// FOOTER SECTION
+
+  footer {
+    flex-direction: column;
+    .footer-left {
+      width: 90%;
+    }
+    .footer-right {
+      width: 90%;
+    }
+    .footer-center {
+      width: 90%;
+    }
   }
 }
