@@ -1,0 +1,127 @@
+///////////////////////////////////////////// THIS MEDIA QUERY STYLES THE CONTACT SECTION
+
+ @media screen and (max-width: 850px) {
+   .contact {
+     color:white;
+     width: 72%;
+     margin:auto;
+     height:200px;
+     background: linear-gradient(to right, transparent, rgb(98,160,220));
+     align-items: center;
+     flex-direction: column;
+     margin-top: 5%;
+     h3 {
+       font-weight: 200;
+       padding: 10%;
+     }
+     button {
+       width: 90%;
+       font-size: 1em;
+     }
+   }
+ }
+
+///////////////////////////////////////////// THIS MEDIA QUERY STYLES EVERYTHING ELSE
+
+@media screen and (max-width: 650px) {
+
+///////////////////////////////////// GLOBAL STYLES
+
+  .brand-svg {
+    height:40%;width:40%;margin:auto;margin-top:5%;
+  }
+
+//////////////////////////////////////  NAVBAR
+
+  .nav-bar {
+    .nav-bar-right {
+      width:20%;
+      margin-left:10%;
+      a {
+      }
+    }
+    .nav-bar-left {
+      margin-left:10%;
+      width:60%;
+    }
+  }
+  .about {
+    display: block;
+    background: transparent;
+    width: 100%;
+    .about-content {
+      width:90%;
+      margin:5%;
+    }
+  }
+
+////////////////////////////////////// HERO SPOT
+
+  header {
+    .header-content {
+      h2 {
+        font-size: 1.5em; line-height: 1.25em;
+      }
+    }
+  }
+
+//////////////////////////////////////  PRODUCT FEATURES
+
+  .product-features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%;
+    .feature-one {
+      height: 250px;
+      width: 90%;
+      flex-direction: column;
+      .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/graph.png");
+      }
+    }
+    .feature-two {
+      height:250px;
+      width:90%;
+      flex-direction: column;
+      .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/d3.png");
+      }
+    }
+    .feature-three {
+      height:250px;
+      width: 90%;
+      flex-direction: column;
+      .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/d3_3.png");
+      }
+    }
+  }
+  .feature-text {
+    width: 90%;
+  }
+
+  ////////////////////////////////////// CONTACT SECTION
+
+  .contact {
+    width: 90%;
+  }
+
+  ////////////////////////////////////// FOOTER SECTION
+
+  footer {
+    flex-direction: column;
+    .footer-left {
+      width: 80%;
+    }
+    .footer-right {
+      width: 80%;
+    }
+    .footer-center {
+      width: 80%;
+    }
+  }
+}
