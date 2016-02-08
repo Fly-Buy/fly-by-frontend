@@ -1,24 +1,24 @@
-main {
+.dashboard {
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   background-color: green; }
-  main .left-input-bar {
+  .dashboard .left-input-bar {
     width: 20%;
     height: 100vh;
     background-color: yellow;
     display: flex;
     flex-direction: column; }
-  main .data-container {
+  .dashboard .data-container {
     width: 80%;
     display: flex;
     flex-direction: column; }
-    main .data-container .graph-container {
+    .dashboard .data-container .graph-container {
       height: 60vh;
       background-color: blue;
       width: 100%; }
-    main .data-container .data-table {
+    .dashboard .data-container .data-table {
       height: 40vh;
       background-color: red;
       width: 100%; }
