@@ -1,0 +1,32 @@
+main {
+  height: 100vh;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  background-color: green;
+
+  .left-input-bar {
+    width: 20%;
+    height: 100vh;
+    background-color: yellow;
+    display:flex;
+    flex-direction: column;
+  }
+
+  .data-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    .graph-container {
+      height:60vh;
+      background-color: blue;
+      width: 100%;
+    }
+    .data-table {
+      height: 40vh;
+      background-color: red;
+      width: 100%;
+    }
+  }
+
+}
