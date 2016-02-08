@@ -57,9 +57,6 @@
       .first-flight-container .right-pane .first-flight-form button {
         height: 50px; }
 
-/* ====================================
-        >>>>  MEDIA QUERIES  <<<<
-   ==================================== */
 @media screen and (max-width: 850px) {
   .contact {
     color: white;
@@ -76,9 +73,6 @@
     .contact button {
       width: 90%;
       font-size: 1em; } }
-/* ====================================
-        >>>>  MEDIA QUERIES  <<<<
-   ==================================== */
 @media screen and (max-width: 650px) {
   .brand-svg {
     height: 40%;
