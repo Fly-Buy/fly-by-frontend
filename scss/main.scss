@@ -445,8 +445,12 @@ footer {
       flex-direction: column;
       height: 70vh;
       input {
-        width: 80%;
+        width: 60%;
         margin: auto;
+        height: 50px;
+      }
+      button {
+        height: 50px;
       }
     }
   }
@@ -485,8 +489,10 @@ footer {
          flex-direction: column;
          height: 70vh;
          input {
-           width: 80%;
+           width: 70%;
            margin: auto;
+           height: 50px;
+           margin-top: 4%;
          }
        }
      }
