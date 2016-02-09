@@ -1,24 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name flyBuyApp
- * @description
- * # flyBuyApp
- *
- * Main module of the application.
- */
 angular
-  .module('flyBuyApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  .module('flyBuyApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -28,10 +11,8 @@ angular
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: 'views/main.html'
       });
   });
