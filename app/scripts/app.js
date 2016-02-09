@@ -9,8 +9,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
+      .when('/firstflight', {
+        templateUrl: 'views/firstflight.html',
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
       })
       .otherwise({
         redirectTo: 'views/main.html'

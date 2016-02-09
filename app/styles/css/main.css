@@ -441,4 +441,88 @@ footer {
     margin: auto;
     color: #b1b6ba; }
 
+@media screen and (max-width: 850px) {
+  .contact {
+    color: white;
+    width: 72%;
+    margin: auto;
+    height: 200px;
+    background: linear-gradient(to right, transparent, #62a0dc);
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%; }
+    .contact h3 {
+      font-weight: 200;
+      padding: 10%; }
+    .contact button {
+      width: 90%;
+      font-size: 1em; } }
+@media screen and (max-width: 650px) {
+  .brand-svg {
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    margin-top: 5%; }
+
+  .nav-bar .nav-bar-right {
+    width: 20%;
+    margin-left: 10%; }
+  .nav-bar .nav-bar-left {
+    margin-left: 10%;
+    width: 60%; }
+
+  .about {
+    display: block;
+    background: transparent;
+    width: 100%; }
+    .about .about-content {
+      width: 90%;
+      margin: 5%; }
+
+  header .header-content h2 {
+    font-size: 1.5em;
+    line-height: 1.25em; }
+
+  .product-features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%; }
+    .product-features .feature-one {
+      height: 250px;
+      width: 90%;
+      flex-direction: column; }
+      .product-features .feature-one .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/graph.png"); }
+    .product-features .feature-two {
+      height: 250px;
+      width: 90%;
+      flex-direction: column; }
+      .product-features .feature-two .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/d3.png"); }
+    .product-features .feature-three {
+      height: 250px;
+      width: 90%;
+      flex-direction: column; }
+      .product-features .feature-three .feature-image {
+        margin: 5%;
+        background-image: url("../public/images/d3_3.png"); }
+
+  .feature-text {
+    width: 90%; }
+
+  .contact {
+    width: 90%; }
+
+  footer {
+    flex-direction: column; }
+    footer .footer-left {
+      width: 80%; }
+    footer .footer-right {
+      width: 80%; }
+    footer .footer-center {
+      width: 80%; } }
+
 /*# sourceMappingURL=main.css.map */
