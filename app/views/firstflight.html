@@ -7,13 +7,13 @@
   <div class="right-pane">
     <form class="first-flight-form" ng-model="ff.insertFlight">
      <input type="text" placeholder="Flight Date" name="flight_date" />
-     <select class="" ng-model="ff.insertFlight.selectedAirline" name="Airline">
+     <select class="" ng-model="ff.insertFlight.Airline" name="Airline">
        <option ng-repeat="airline in ff.airlines" value="{{airline.id}}">{{airline.name}}</option>
      </select>
-     <select class="" ng-model="ff.insertFlight.selectedDepartureAirport" name="departure_airport_id">
+     <select class="" ng-model="ff.insertFlight.DepartureAirport" name="departure_airport_id">
        <option ng-repeat="airport in ff.airports" value="{{airport.id}}">{{airport.name}}</option>
      </select>
-     <select class="" ng-model="ff.insertFlight.selectedArrivalAirport" name="arrival_airport_id">
+     <select class="" ng-model="ff.insertFlight.ArrivalAirport" name="arrival_airport_id">
        <option ng-repeat="airport in ff.airports" value="{{airport.id}}">{{airport.name}}</option>
      </select>
      <input type="text" placeholder="Purchase Date" name="purchase_date" />
