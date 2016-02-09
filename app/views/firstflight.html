@@ -5,15 +5,15 @@
     <h2>Please enter some flight info to begin using our app</h2>
   </div>
   <div class="right-pane">
-    <form class="first-flight-form" action="/#/dashboard">
-      <input type="text" placeholder="Origin" />
-      <input type="text" placeholder="Destinstion" />
-      <input type="text" placeholder="Price" />
-      <input type="text" placeholder="Flight Date" />
-      <input type="text" placeholder="Purchase Date" />
-      <input type="text" placeholder="Purchase Location" />
-      <input type="text" placeholder="Flight Number" />
-      <input type="text" placeholder="Airline" />
+    <form class="first-flight-form" action="/#/flights" method="POST">
+      <input type="text" placeholder="Flight Date" name="flight_date" />
+      <input type="text" placeholder="airline_id" name="airline_id"/>
+      <input type="text" placeholder="departure_airport_id" name="departure_airport_id" />
+      <input type="text" placeholder="arrival_airport_id" name="arrival_airport_id" />
+      <input type="text" placeholder="Purchase Date" name="purchase_date" />
+      <input type="text" placeholder="Flight Number" name="flight_number"/>
+      <input type="text" placeholder="Price" name="price_paid"/>
+      <input type="text" placeholder="Purchase Location" name="purchase_location" />
       <input type="submit" value="Submit Flight Info">
     </form>
   </div>
