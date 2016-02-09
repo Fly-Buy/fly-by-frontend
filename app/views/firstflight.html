@@ -5,18 +5,22 @@
     <h2>Please enter some flight info to begin using our app</h2>
   </div>
   <div class="right-pane">
-    <form class="first-flight-form">
-      <input type="text" placeholder="Origin" />
-      <input type="text" placeholder="Destinstion" />
-      <input type="text" placeholder="Price" />
-      <input type="text" placeholder="Flight Date" />
-      <input type="text" placeholder="Purchase Date" />
-      <input type="text" placeholder="Purchase Location" />
-      <input type="text" placeholder="Flight Number" />
-      <select class="" ng-model="ff.selectedAirline" name="Airline">
-        <option ng-repeat="airline in ff.airlines" value="airline.id">{{airline.name}}</option>
-      </select>
-      <input type="submit" value="Submit Flight Info">
-    </form>
+    <form class="first-flight-form" ng-model="ff.insertFlight">
+     <input type="text" placeholder="Flight Date" name="flight_date" />
+     <select class="" ng-model="ff.insertFlight.selectedAirline" name="Airline">
+       <option ng-repeat="airline in ff.airlines" value="{{airline.id}}">{{airline.name}}</option>
+     </select>
+     <select class="" ng-model="ff.insertFlight.selectedDepartureAirport" name="departure_airport_id">
+       <option ng-repeat="airport in ff.airports" value="{{airport.id}}">{{airport.name}}</option>
+     </select>
+     <select class="" ng-model="ff.insertFlight.selectedArrivalAirport" name="arrival_airport_id">
+       <option ng-repeat="airport in ff.airports" value="{{airport.id}}">{{airport.name}}</option>
+     </select>
+     <input type="text" placeholder="Purchase Date" name="purchase_date" />
+     <input type="text" placeholder="Flight Number" name="flight_number"/>
+     <input type="text" placeholder="Price" name="price_paid"/>
+     <input type="text" placeholder="Purchase Location" name="purchase_location" />
+     <input type="submit" value="Submit Flight Info" ng-click="ff.postFlight(ff.insertFlight)">
+   </form>
   </div>
 </main>

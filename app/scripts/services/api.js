@@ -10,18 +10,17 @@
 angular.module('flyBuyApp')
   .service('api', function ($resource, apihost) {
 
-    var airlines = $resource('http://' + apihost + '/airlines',
-      {
-        test: {method:'GET', isArray:true}
-      }
-    );
-
-    // var airlinesPromise = airlines.$promise
-    //   .then(function(data) {
-    //     return data;
-    //   });
+    var airlines = $resource('http://' + apihost + '/airlines');
+    var airports = $resource('http://' + apihost + '/airports');
+    var flights = $resource('http://' + apihost + '/flights');
 
     return {
-      getAirlines: airlines
+      getAirlines: airlines,
+      getAirports: airports,
+      flights: flights,
+      postFlight: function(flightInfo){
+        console.log(flightInfo);
+        // flights.save(flightInfo);
+      }
     };
   });
