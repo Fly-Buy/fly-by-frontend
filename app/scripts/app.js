@@ -16,6 +16,6 @@ angular
         templateUrl: 'views/dashboard.html',
       })
       .otherwise({
-        redirectTo: 'views/main.html'
+        templateUrl: 'views/404.html'
       });
   });
