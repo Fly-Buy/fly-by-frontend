@@ -9,6 +9,6 @@
  */
 angular.module('flyBuyApp')
   .controller('HomeCtrl', function () {
-    var that = this;
-    this.test = "Balls deep";
+    // var that = this;
+    this.test = 'Balls deep';
   });
