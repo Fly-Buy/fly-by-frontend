@@ -1,12 +1,20 @@
 <main class="first-flight-container">
   <div class="left-pane">
-    <h1>Welcome, {{user.name}}</h1>
+    <h1>Welcome, {{ff.user.name}}</h1>
     <img src="path/to/img" />
     <h2>Please enter some flight info to begin using our app</h2>
   </div>
   <div class="right-pane">
     <form class="first-flight-form" ng-model="ff.insertFlight">
      <input type="text" placeholder="Flight Date" name="flight_date" />
+
+     <!-- ff.getAirlines($viewValue) -->
+     <input type="text" ng-model="ff.insertFlight.Airline2" placeholder="Airline" uib-typeahead="airline.name for airline in ff.airlines | filter:$viewValue | limitTo:8" typeahead-loading="ff.loadingLocations" typeahead-no-results="ff.noResults">
+     <i ng-show="ff.loadingLocations" class="glyphicon glyphicon-refresh"></i>
+     <div ng-show="ff.noResults">
+       <i class="glyphicon glyphicon-remove"></i> No Results Found
+     </div>
+
      <select class="" ng-model="ff.insertFlight.Airline" name="Airline">
        <option ng-repeat="airline in ff.airlines" value="{{airline.id}}">{{airline.name}}</option>
      </select>
