@@ -12,20 +12,27 @@ angular.module('flyBuyApp')
 
     var airlines = $resource('http://' + apihost + '/airlines');
     var airports = $resource('http://' + apihost + '/airports');
-    var flights = $resource('http://' + apihost + '/flights');
+    var Flight = $resource('http://' + apihost + '/flights');
 
-    var airlines2 = function(input){
-      return $http.get('http://' + apihost + '/airlines');
-    };
 
     return {
       getAirlines: airlines,
-      getAirlines2: airlines2,
       getAirports: airports,
-      flights: flights,
+      flights: Flight,
       postFlight: function(flightInfo){
         console.log(flightInfo);
-        // flights.save(flightInfo);
+        var newFlight = new Flight();
+        newFlight.user_id = flightInfo.user || null;
+        newFlight.flight_date = flightInfo.flightDate || null;
+        newFlight.purchase_date = flightInfo.purchaseDate || null;
+        newFlight.flight_number = flightInfo.flightNum || null;
+        newFlight.price_paid = flightInfo.pricePaid;
+        newFlight.purchase_location = flightInfo.purchaseLocation || null;
+        newFlight.departure_airport_id = flightInfo.DepartureAirport.id;
+        newFlight.arrival_airport_id = flightInfo.ArrivalAirport.id;
+        newFlight.airline_id = flightInfo.Airline.id || null;
+        newFlight.suspect = flightInfo.suspect || false;
+        newFlight.$save();
       }
     };
   });
