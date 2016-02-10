@@ -7,6 +7,13 @@
   <div class="right-pane">
     <form class="first-flight-form" ng-model="ff.insertFlight">
      <input type="text" placeholder="Flight Date" name="flight_date" />
+
+     <input type="text" ng-model="ff.insertFlight.Airline2" placeholder="Airline" uib-typeahead="airline for airline in ff.getAirlines($viewValue)" typeahead-loading="ff.loadingLocations" typeahead-no-results="ff.noResults">
+     <i ng-show="ff.loadingLocations" class="glyphicon glyphicon-refresh"></i>
+     <div ng-show="ff.noResults">
+      <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+
      <select class="" ng-model="ff.insertFlight.Airline" name="Airline">
        <option ng-repeat="airline in ff.airlines" value="{{airline.id}}">{{airline.name}}</option>
      </select>

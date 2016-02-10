@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
- 
+
 angular
   .module('flyBuyApp', [
     'ngAnimate',
@@ -19,7 +19,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngLodash'
+    'ngLodash',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

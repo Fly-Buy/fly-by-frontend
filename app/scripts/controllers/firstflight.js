@@ -11,7 +11,14 @@ angular.module('flyBuyApp')
   .controller('FFCtrl', function (api) {
 
     var that = this; //"this" is $scope basically (known as "ff" in the template)
-    this.insertFlight= {};
+    this.insertFlight = {};
+
+    this.getAirlines = function(typedValue){
+      return api.getAirlines2(typedValue).then(function(data){
+        console.log(data);
+        return data;
+      });
+    };
 
     api.getAirlines.query(function(data){
       that.airlines = data;
