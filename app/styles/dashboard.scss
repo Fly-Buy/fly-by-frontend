@@ -10,6 +10,32 @@
     background-color: yellow;
     display:flex;
     flex-direction: column;
+    .toggle-buttons-container {
+      display: flex;
+      flex-direction: row;
+      width:80%;
+      margin:auto;
+      .search-button {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: blue;
+        margin: auto;
+        height: 50px;
+        justify-content: center;
+      }
+      .add-flight-button {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: green;
+        height: 50px;
+        justify-content: center;
+      }
+    }
+    .input-bar-header {
+      margin: 5%;
+    }
     .left-input-form {
       input {
         display:flex;
@@ -20,7 +46,6 @@
       }
     }
   }
-
   .data-container {
     width: 80%;
     display: flex;
