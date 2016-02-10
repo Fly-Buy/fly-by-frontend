@@ -15,11 +15,7 @@ angular.module('flyBuyApp')
     var flights = $resource('http://' + apihost + '/flights');
 
     var airlines2 = function(input){
-      return $http.get('http://' + apihost + '/airlines/name/:name', {
-        params: {
-          name: input
-        }
-      });
+      return $http.get('http://' + apihost + '/airlines');
     };
 
     return {

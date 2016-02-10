@@ -8,15 +8,20 @@
  * Controller of the flyBuyApp
  */
 angular.module('flyBuyApp')
-  .controller('FFCtrl', function (api) {
+  .controller('FFCtrl', function (api, lodash) {
 
     var that = this; //"this" is $scope basically (known as "ff" in the template)
     this.insertFlight = {};
 
     this.getAirlines = function(typedValue){
-      return api.getAirlines2(typedValue).then(function(data){
-        console.log(data);
-        return data;
+      console.log(typedValue);
+      return api.getAirlines2().then(function(data){
+        console.log(data.data);
+        var results = lodash.filter(data.data, function(a){
+          return a.name == typedValue;
+        })
+        console.log(results);
+        return results.name;
       });
     };
 
