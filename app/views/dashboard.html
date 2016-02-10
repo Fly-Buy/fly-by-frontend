@@ -1,6 +1,7 @@
 <main class="dashboard">
   <div class="left-input-bar">
-    <h1 class='input-bar-header'>Search for a flight<h1>
+    <h1 class='input-bar-header'>Search for a flight</h1>
+    <p>Type into any field to begin</p>
     <form class="left-input-form">
       <input type="text" placeholder="Origin" />
       <input type="text" placeholder="Destinstion" />
@@ -10,23 +11,144 @@
       <input type="text" placeholder="Purchase Location" />
       <input type="text" placeholder="Flight Number" />
       <input type="text" placeholder="Airline" />
-      <input type="submit" value="Submit Flight Info" class="enter-flight">
+      <!-- <input type="submit" value="Submit Flight Info" class="enter-flight"> -->
     </form>
     <div class="toggle-buttons-container">
       <div class="search-button">
-        <button>Search</button>
+        <h4>Search</h4>
       </div>
       <div class="add-flight-button">
-        <button>Add flight</button>
+        <h4>Add flight</h4>
       </div>
     </div>
   </div>
   <div class="data-container">
     <div class="graph-container">
-      <p>Graphs<p>
-    </div>
-    <div class="data-table">
-      <p>Table</p>
+        <div class='histogram' style="width:80%" ></div>
+        <script>
+          // Generate an Irwin-Hall distribution.
+          function gen_ih_dist(trails, variables) {
+            data = [];
+            for (var i = 0; i < trails; i++) {
+              for (var s = 0, j = 0; j < variables; j++) {
+                s += Math.random();
+              }
+              data.push(s);
+            }
+            return data;
+          }
+          var div_name = "div.histogram";
+          pos_data = gen_ih_dist(300, 100);
+          neg_data = gen_ih_dist(0);
+          draw_histogram(div_name, pos_data, neg_data);
+          //The drawing of the histogram has been broken out from the data retrial
+          // or computation. (In this case the 'Irwin-Hall distribution' computation above)
+          function draw_histogram(reference, pos_data, neg_data){
+          $(reference).empty();
+          //The drawing code needs to reference a responsive elements dimneions
+          var width = $(reference).width();
+          console.log(width);
+          // var width = $(reference).empty().width(); we can chain for effeicanecy as jquery returns jquery.
+          var height = 250;  // We don't want the height to be responsive.
+          var histogram = d3.layout.histogram() (pos_data);
+          var neg_histogram = d3.layout.histogram()(neg_data);
+          var x = d3.scale.ordinal()
+            .domain(histogram.map(function(d) { return d.x; }))
+            .rangeRoundBands([0, width]);
+          var y = d3.scale.linear()
+            .domain([0, d3.max(histogram.map(function(d) { return d.y; }))])
+            .range([0, height]);
+          var ny = d3.scale.linear()
+            .domain([0, d3.max(neg_histogram.map(function(d) { return d.y; }))])
+            .range([0, height]);
+          var svg = d3.select(reference).append("svg")
+            .attr("width", width)
+            .attr("height", 3 * height);
+          svg.selectAll("rect")
+            .data(histogram)
+            .enter().append("rect")
+            .attr("width", 20)
+            .attr("x", function(d) { return x(d.x); })
+            .attr("y", function(d) { return height - y(d.y); })
+            .attr("height", function(d) { return y(d.y); });
+          svg.selectAll("rect-neg")
+            .data(neg_histogram)
+            .enter().append("rect")
+            .style("fill", "red")
+            .attr("width", x.rangeBand())
+            .attr("x", function(d) { return x(d.x); })
+            .attr("y", function(d) { return height})
+            .attr("height", function(d) { return ny(d.y); });
+          svg.append("line")
+            .attr("x1", 0)
+            .attr("x2", width)
+            .attr("y1", height)
+            .attr("y2", height);
+          };
+          var draw = function() {
+          draw_histogram(div_name, pos_data, neg_data);
+          };
+          $(window).resize(draw);
+        </script>
+      </div>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>showSpeed</strong></td>
+              <td>15</td>
+              <td>The speed of the show/reveal</td>
+            </tr>
+            <tr>
+              <td><strong>showEasing</strong></td>
+              <td>'linear'</td>
+              <td>The easing of the show/reveal</td>
+            </tr>
+            <tr>
+              <td><strong>hideSpeed</strong></td>
+              <td>50</td>
+              <td>The speed of the hide/conceal</td>
+            </tr>
+            <tr>
+              <td><strong>hideEasing</strong></td>
+              <td>'linear'</td>
+              <td>The easing of the hide/conceal</td>
+            </tr>
+            <tr>
+              <td><strong>width</strong></td>
+              <td>'auto'</td>
+              <td>The width that the data will be truncated to - <em>('auto' or px amount)</em></td>
+            </tr>
+            <tr>
+              <td><strong>ellipsis</strong></td>
+              <td>true</td>
+              <td>Set to true to enable the ellipsis</td>
+            </tr>
+            <tr>
+              <td><strong>title</strong></td>
+              <td>false</td>
+              <td>Set to true to show the full data on hover</td>
+            </tr>
+            <tr>
+              <td><strong>afterShow</strong></td>
+              <td> $.noop</td>
+              <td>The callback fired after the show/reveal</td>
+            </tr>
+            <tr>
+              <td><strong>afterHide</strong></td>
+              <td>$.noop</td>
+              <td>The callback fired after the hide/conceal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>
