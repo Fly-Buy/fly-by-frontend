@@ -8,7 +8,8 @@
     <form class="first-flight-form" ng-model="ff.insertFlight">
      <input type="text" placeholder="Flight Date" name="flight_date" />
 
-     <input type="text" ng-model="ff.insertFlight.Airline2" placeholder="Airline" uib-typeahead="airline for airline in ff.getAirlines($viewValue)" typeahead-loading="ff.loadingLocations" typeahead-no-results="ff.noResults">
+     <!-- ff.getAirlines($viewValue) -->
+     <input type="text" ng-model="ff.insertFlight.Airline2" placeholder="Airline" uib-typeahead="airline.name for airline in ff.airlines | filter:$viewValue | limitTo:8" typeahead-loading="ff.loadingLocations" typeahead-no-results="ff.noResults">
      <i ng-show="ff.loadingLocations" class="glyphicon glyphicon-refresh"></i>
      <div ng-show="ff.noResults">
       <i class="glyphicon glyphicon-remove"></i> No Results Found
