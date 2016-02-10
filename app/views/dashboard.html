@@ -67,6 +67,7 @@
           svg.selectAll("rect")
             .data(histogram)
             .enter().append("rect")
+            .style("fill", "white")
             .attr("width", 20)
             .attr("x", function(d) { return x(d.x); })
             .attr("y", function(d) { return height - y(d.y); })
@@ -92,59 +93,99 @@
         </script>
       </div>
       <div class="data-table">
+        <div class="table-header">
+          <div class="column">
+            <p>Arrive</p>
+          </div>
+          <div class="column">
+            <p>Depart</p>
+          </div>
+          <div class="column">
+            <p>Price</p>
+          </div>
+          <div class="column">
+            <p>Date</p>
+          </div>
+          <div class="column">
+            <p>Purchase location</p>
+          </div>
+          <div class="column">
+            <p>Purchase Date</p>
+          </div>
+        </div>
         <table>
-          <thead>
-            <tr>
-              <th>Option</th>
-              <th>Default</th>
-              <th>Description</th>
-            </tr>
-          </thead>
           <tbody>
             <tr>
-              <td><strong>showSpeed</strong></td>
-              <td>15</td>
-              <td>The speed of the show/reveal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>showEasing</strong></td>
-              <td>'linear'</td>
-              <td>The easing of the show/reveal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>hideSpeed</strong></td>
-              <td>50</td>
-              <td>The speed of the hide/conceal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>hideEasing</strong></td>
-              <td>'linear'</td>
-              <td>The easing of the hide/conceal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>width</strong></td>
-              <td>'auto'</td>
-              <td>The width that the data will be truncated to - <em>('auto' or px amount)</em></td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>ellipsis</strong></td>
-              <td>true</td>
-              <td>Set to true to enable the ellipsis</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>title</strong></td>
-              <td>false</td>
-              <td>Set to true to show the full data on hover</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>afterShow</strong></td>
-              <td> $.noop</td>
-              <td>The callback fired after the show/reveal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
             <tr>
-              <td><strong>afterHide</strong></td>
-              <td>$.noop</td>
-              <td>The callback fired after the hide/conceal</td>
+              <td>MIA</td>
+              <td>LAX</td>
+              <td>10000</td>
+              <td>10/10/10</td>
+              <td>10/10/10</td>
+              <td>Expedia</td>
             </tr>
           </tbody>
         </table>

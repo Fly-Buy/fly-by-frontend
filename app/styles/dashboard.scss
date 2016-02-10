@@ -89,9 +89,10 @@
     ///////////////////////// GRAPH STYLES
 
     .graph-container {
+
       display: flex;
       height:60vh;
-      background-color: white;
+      background-color: #ccc;
       width: 100%;
       align-items: center;
       justify-content: center;
@@ -111,45 +112,26 @@
     ////////////////////////// TABLE STYLES
 
     .data-table {
-      display: flex;
       height: 40vh;
       background-color: white;
       width: 100%;
-      align-items: center;
-      justify-content: center;
       overflow: scroll;
-      table {
-        align-items: center;
-        justify-content: center;
+      display: flex;
+      flex-direction: column;
+      .table-header {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
         width: 100%;
-      }
-      strong {
-      	font-weight: bold;
-      }
-      em {
-      	font-style: italic;
-      }
-      tr {
-        height: 4em;
-      }
-      td:first-child {
-      	box-shadow: inset 1px 0 0 #fff;
-      }
-      td:last-child {
-      	border-right: 1px solid #e8e8e8;
-      	box-shadow: inset -1px 0 0 #fff;
-      }
-      tr:nth-child(odd) td {
-      	background: #f1f1f1;
-      }
-      tr:last-of-type td {
-      	box-shadow: inset 0 -1px 0 #fff;
-      }
-      tr:last-of-type td:first-child {
-      	box-shadow: inset 1px -1px 0 #fff;
-      }
-      tr:last-of-type td:last-child {
-      	box-shadow: inset -1px -1px 0 #fff;
+        background-color:#e1e1e1;
+        height:25px;
+        position: fixed;
+        margin-top: -25px;
+        .column {
+          flex-wrap: wrap;
+          margin-right: 5%;
+          margin-left: 2%;
+        }
       }
     }
   }
