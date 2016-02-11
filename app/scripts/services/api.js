@@ -22,15 +22,15 @@ angular.module('flyBuyApp')
       postFlight: function(flightInfo){
         console.log(flightInfo);
         var newFlight = new Flight();
-        newFlight.user_id = flightInfo.user || null;
+        newFlight.user_id = flightInfo.user ? flightInfo.user.id : null;
         newFlight.flight_date = flightInfo.flightDate || null;
         newFlight.purchase_date = flightInfo.purchaseDate || null;
         newFlight.flight_number = flightInfo.flightNum || null;
         newFlight.price_paid = flightInfo.pricePaid;
-        newFlight.purchase_location = flightInfo.purchaseLocation || null;
+        newFlight.purchase_location = flightInfo.purchaseLocation || "null";
         newFlight.departure_airport_id = flightInfo.DepartureAirport.id;
-        newFlight.arrival_airport_id = flightInfo.ArrivalAirport.id;
-        newFlight.airline_id = flightInfo.Airline.id || null;
+        newFlight.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : null;
+        newFlight.airline_id = flightInfo.Airline ? flightInfo.Airline.id : null;
         newFlight.suspect = flightInfo.suspect || false;
         newFlight.$save();
       }
