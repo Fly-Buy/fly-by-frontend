@@ -159,6 +159,9 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
+        options: {
+          force: true
+        },
         files: [{
           dot: true,
           src: [
@@ -166,6 +169,15 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
+        }]
+      },
+      public: {
+        options: {
+          force: true
+        },
+        files: [{
+          dot: true,
+          src: ['../public/{,*/}*']
         }]
       },
       server: '.tmp'
@@ -468,6 +480,18 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>'
         }]
       },
+      copyToPublic: {
+        options: {
+          force: true
+        },
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: 'sDist',
+          dest: '../public',
+          src: ['./**/{,*/}*.*']
+        }]
+      },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
@@ -551,9 +575,14 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'concurrent:dist',
+    'cdnify',
     'copy:sDist',
-    'cdnify'
   ]);
+
+  grunt.registerTask('copyup',[
+    'clean:public',
+    'copy:copyToPublic'
+  ])
 
   grunt.registerTask('default', [
     'newer:jshint',
