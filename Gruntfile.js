@@ -575,8 +575,8 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'concurrent:dist',
-    'cdnify',
     'copy:sDist',
+    'cdnify'
   ]);
 
   grunt.registerTask('copyup',[
