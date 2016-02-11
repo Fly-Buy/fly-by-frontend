@@ -8,7 +8,7 @@
  * Controller of the flyBuyApp
  */
 angular.module('flyBuyApp')
-  .controller('FFCtrl', function (api) {
+  .controller('FFCtrl', function ($scope, api, $location) {
     //"this" is $scope basically (known as "ff" in the template)
     var that = this;
 
@@ -36,7 +36,20 @@ angular.module('flyBuyApp')
       console.log(data);
     });
 
-    this.postFlight = api.postFlight;
-
+    this.postFlight = function(insertFlight){
+      if ($scope.firstflightform.$valid) {
+        api.postFlight(insertFlight)
+          .then(function(result){
+            console.log(result);
+            if (result.rowCount === 1) {
+              $location.path('/dashboard');
+            } else {
+              console.log('It didn\'t insert');
+            }
+          });
+      } else {
+        console.log('Form invalid: ', $scope.firstflightform.$invalid);
+      }
+    };
 
   });
