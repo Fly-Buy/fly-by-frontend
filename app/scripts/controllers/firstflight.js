@@ -9,22 +9,20 @@
  */
 angular.module('flyBuyApp')
   .controller('FFCtrl', function (api) {
+    //"this" is $scope basically (known as "ff" in the template)
+    var that = this;
 
-    var that = this; //"this" is $scope basically (known as "ff" in the template)
-
-    this.insertFlight = {};
-
-    // this.getAirlines = function(typedValue){
-    //   console.log(typedValue);
-    //   return api.getAirlines2().then(function(data){
-    //     console.log(data.data);
-    //     var results = lodash.filter(data.data, function(a){
-    //       return a.name == typedValue;
-    //     })
-    //     console.log(results);
-    //     return results.name;
-    //   });
-    // };
+    this.insertFlight = {
+      user: {},
+      flightDate: null,
+      purchaseDate: null,
+      flightNum: null,
+      Airline: null,
+      DepartureAirport: null,
+      ArrivalAirport: null,
+      pricePaid: null,
+      purchaseLocation: null
+    };
 
     api.getAirlines.query(function(data){
       that.airlines = data;
