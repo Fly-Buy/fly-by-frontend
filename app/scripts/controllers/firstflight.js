@@ -8,7 +8,7 @@
  * Controller of the flyBuyApp
  */
 angular.module('flyBuyApp')
-  .controller('FFCtrl', function (api) {
+  .controller('FFCtrl', function (api, $location) {
     //"this" is $scope basically (known as "ff" in the template)
     var that = this;
 
@@ -36,7 +36,11 @@ angular.module('flyBuyApp')
       console.log(data);
     });
 
-    this.postFlight = api.postFlight;
-
+    this.postFlight = function(insertFlight){
+      api.postFlight(insertFlight)
+        .then(function(result){
+          result.rowCount = 1 ? $location.path('/dashboard') : console.log(result);
+        });
+    };
 
   });

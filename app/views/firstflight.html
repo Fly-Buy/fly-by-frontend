@@ -26,9 +26,9 @@
        <i class="glyphicon glyphicon-remove"></i> No Results Found
      </div>
 
-     <input type="text" onfocus="(this.type='date')" ng-model="ff.insertFlight.purchaseDate" placeholder="Purchase Date" name="purchase_date" />
+     <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="ff.insertFlight.purchaseDate" placeholder="Purchase Date" name="purchase_date" />
      <input type="text" ng-model="ff.insertFlight.flightNum" placeholder="Flight Number" name="flight_number"/>
-     <input type="number" ng-model="ff.insertFlight.pricePaid" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
+     <input type="number" ng-model="ff.insertFlight.pricePaid" ng-required="true" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
      <input type="text" ng-model="ff.insertFlight.purchaseLocation" placeholder="Purchase Location" name="purchase_location" />
      <input type="submit" value="Submit Flight Info" ng-click="ff.postFlight(ff.insertFlight)">
    </form>

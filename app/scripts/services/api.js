@@ -13,12 +13,14 @@ angular.module('flyBuyApp')
     var airlines = $resource('http://' + apihost + '/airlines');
     var airports = $resource('http://' + apihost + '/airports');
     var Flight = $resource('http://' + apihost + '/flights');
+    var UserFlights = $resource('http://' + apihost + '/user/:userID', {userID: '@id'});
 
 
     return {
       getAirlines: airlines,
       getAirports: airports,
       flights: Flight,
+      UserFlights: UserFlights,
       postFlight: function(flightInfo){
         console.log(flightInfo);
         var newFlight = new Flight();
@@ -27,12 +29,12 @@ angular.module('flyBuyApp')
         newFlight.purchase_date = flightInfo.purchaseDate || null;
         newFlight.flight_number = flightInfo.flightNum || null;
         newFlight.price_paid = flightInfo.pricePaid;
-        newFlight.purchase_location = flightInfo.purchaseLocation || "null";
+        newFlight.purchase_location = flightInfo.purchaseLocation || null;
         newFlight.departure_airport_id = flightInfo.DepartureAirport.id;
         newFlight.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : null;
         newFlight.airline_id = flightInfo.Airline ? flightInfo.Airline.id : null;
         newFlight.suspect = flightInfo.suspect || false;
-        newFlight.$save();
+        return newFlight.$save();
       }
     };
   });
