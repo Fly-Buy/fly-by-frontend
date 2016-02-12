@@ -10,7 +10,7 @@
 angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($http) {
     $http({method:'POST',
-          url:'flights/dashboard'
+          url:'http://localhost:3000/flights/dashboard',
         }).then(function(data){
       console.log('here\'s your info: ', data)
     })

@@ -5,6 +5,16 @@
   flex-direction: row;
   background-color: white;
 
+
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
   ///////////////////////////// LEFT BAR STYLES
 
   .left-input-bar {
