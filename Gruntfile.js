@@ -582,7 +582,7 @@ module.exports = function (grunt) {
   grunt.registerTask('copyup',[
     'clean:public',
     'copy:copyToPublic'
-  ])
+  ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
