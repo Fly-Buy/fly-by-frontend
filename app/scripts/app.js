@@ -20,7 +20,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngLodash',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    // 'nvd3'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -37,7 +38,7 @@ angular
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
-        controllerAs: 'dashboard'
+        controllerAs: 'dash'
       })
       .otherwise({
         redirectTo: '/'
