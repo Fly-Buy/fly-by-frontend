@@ -16,13 +16,13 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
   });
 
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'sDist'
   };
 
   // Define the configuration for all the tasks
@@ -159,6 +159,9 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
+        options: {
+          force: true
+        },
         files: [{
           dot: true,
           src: [
@@ -166,6 +169,15 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
+        }]
+      },
+      public: {
+        options: {
+          force: true
+        },
+        files: [{
+          dot: true,
+          src: ['../public/{,*/}*']
         }]
       },
       server: '.tmp'
@@ -308,27 +320,27 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            '<%= yeoman.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     imagemin: {
       dist: {
@@ -341,16 +353,16 @@ module.exports = function (grunt) {
       }
     },
 
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
+    // svgmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/images',
+    //       src: '{,*/}*.svg',
+    //       dest: '<%= yeoman.dist %>/images'
+    //     }]
+    //   }
+    // },
 
     htmlmin: {
       dist: {
@@ -428,6 +440,58 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>'
         }]
       },
+      sDist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '*.{ico,png,txt}',
+            '*.html',
+            'images/{,*/}*.{webp}',
+            'styles/fonts/{,*/}*.*',
+            'styles/{,*/}*.css',
+            'scripts/{,*/}*.*',
+            'views/{,*/}*.*'
+          ]
+        }, {
+          expand: true,
+          cwd: '.tmp/images',
+          dest: '<%= yeoman.dist %>/images',
+          src: ['generated/*']
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '.tmp/styles',
+          dest: '<%= yeoman.dist %>/styles',
+          src: ['./{,*/}*.*']
+        }, {
+          expand: true,
+          cwd: '.',
+          src: [
+            'bower_components/jquery/dist/jquery.js',
+            'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+            'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+            'bower_components/ng-lodash/build/ng-lodash.js',
+            'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            'bower_components/d3/d3.js'
+          ],
+          dest: '<%= yeoman.dist %>'
+        }]
+      },
+      copyToPublic: {
+        options: {
+          force: true
+        },
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: 'sDist',
+          dest: '../public',
+          src: ['./**/{,*/}*.*']
+        }]
+      },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
@@ -447,7 +511,7 @@ module.exports = function (grunt) {
       dist: [
         'compass:dist',
         'imagemin',
-        'svgmin'
+        // 'svgmin'
       ]
     },
 
@@ -490,10 +554,9 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('obuild', [
     'clean:dist',
     'wiredep',
-    'useminPrepare',
     'concurrent:dist',
     'postcss',
     'ngtemplates',
@@ -507,6 +570,19 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+  grunt.registerTask('build', [
+    'clean:dist',
+    'wiredep',
+    'concurrent:dist',
+    'copy:sDist',
+    'cdnify'
+  ]);
+
+  grunt.registerTask('copyup',[
+    'clean:public',
+    'copy:copyToPublic'
+  ])
 
   grunt.registerTask('default', [
     'newer:jshint',
