@@ -37,7 +37,7 @@ angular
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
-        controllerAs: 'dashboard'
+        controllerAs: 'dash'
       })
       .otherwise({
         redirectTo: '/'
