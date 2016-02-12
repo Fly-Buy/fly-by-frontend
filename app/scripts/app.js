@@ -21,6 +21,7 @@ angular
     'ngTouch',
     'ngLodash',
     'ui.bootstrap'
+    // 'nvd3'
   ])
   .config(function ($routeProvider) {
     $routeProvider

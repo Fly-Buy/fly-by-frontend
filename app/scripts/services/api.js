@@ -15,7 +15,6 @@ angular.module('flyBuyApp')
     var Flight = $resource(apihost + '/flights');
     var UserFlights = $resource(apihost + '/user/:userID', {userID: '@id'});
 
-
     return {
       getAirlines: airlines,
       getAirports: airports,

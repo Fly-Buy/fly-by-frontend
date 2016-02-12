@@ -8,14 +8,16 @@
  * Controller of the flyBuyApp
  */
 angular.module('flyBuyApp')
-  .controller('DashboardCtrl', function ($scope, $http, $location, api) {
+  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs) {
 
     var that = this;
 
-    $http({method:'POST',
-          url:'flights/dashboard'
-        }).then(function(data){
-      console.log('here\'s your info: ', data);
+    var barChart = {};
+
+    graphs.flightData.then(function(data){
+      console.log('flight data: ', data);
+      that.flightData = data;
+      barChart = graphs.barChart(data.data.chart_data);
     });
 
     this.flightInfo = {
