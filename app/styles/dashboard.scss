@@ -1,0 +1,148 @@
+.dashboard {
+  height: 100vh;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  background-color: white;
+
+
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+  ///////////////////////////// LEFT BAR STYLES
+
+  .left-input-bar {
+    width: 400px;
+    height: 100vh;
+    background-color: #e1e1e1;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    .input-bar-header {
+      margin: 5%;
+      margin-top: 5%;
+      font-size: 1.5em;
+    }
+
+    ///////////////////////// LEFT BAR INPUT FORM STYLES
+
+    .left-input-form {
+      margin-top: 5%;
+      .enter-flight {
+        display: felx;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        font-size: 1.25em;
+        height:50px;
+        background-color: #424242;
+        border:none;
+      }
+      input {
+        display:flex;
+        flex-direction: column;
+        margin:auto;
+        width:80%;
+        height: 50px;
+        border:1px solid black;
+      }
+    }
+
+    ///////////////////////// LEFT BAR TOGGLE VIEW BUTTON STYLES
+
+    .toggle-buttons-container {
+      display: flex;
+      flex-direction: row;
+      width:80%;
+      margin:auto;
+      margin-top:1px;
+      .search-button {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: white;
+        margin: auto;
+        height: 50px;
+        justify-content: center;
+        button {
+          border:none;
+        }
+      }
+      .add-flight-button {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #ccc;
+        height: 50px;
+        justify-content: center;
+        button {
+          border:none;
+        }
+      }
+    }
+  }
+
+  /////////////////////////// DATA CONTAINER STYLES
+
+  .data-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ///////////////////////// GRAPH STYLES
+
+    .graph-container {
+
+      display: flex;
+      height:60vh;
+      background-color: #ccc;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      .histogram {
+        margin-top: 500px;
+      }
+      rect {
+        fill: steelblue;
+        stroke: white;
+      }
+      line {
+        stroke: black;
+        shape-rendering: crispEdges;
+      }
+    }
+
+    ////////////////////////// TABLE STYLES
+
+    .data-table {
+      height: 40vh;
+      background-color: white;
+      width: 100%;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      .table-header {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 100%;
+        background-color:#e1e1e1;
+        height:25px;
+        position: fixed;
+        margin-top: -25px;
+        .column {
+          flex-wrap: wrap;
+          margin-right: 5%;
+          margin-left: 2%;
+        }
+      }
+    }
+  }
+}

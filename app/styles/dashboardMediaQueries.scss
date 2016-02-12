@@ -1,0 +1,30 @@
+@media screen and (max-width: 850px) {
+  .dashboard {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    .left-input-bar {
+      width: 100%;
+      height: 100%;
+      .left-input-form {
+        input {
+          height:40px;
+        }
+      }
+    }
+
+    .data-container {
+      width:100%;
+      height: 900px;
+      .graph-container {
+        width:100%;
+        height: 100%;
+      }
+      .data-table {
+        width:100%;
+        height: 400px;
+      }
+    }
+  }
+}
