@@ -20,8 +20,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngLodash',
-    'ui.bootstrap'
-    // 'nvd3'
+    'ui.bootstrap',
+    'nvd3'
   ])
   .config(function ($routeProvider) {
     $routeProvider
