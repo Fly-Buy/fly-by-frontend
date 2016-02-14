@@ -35,10 +35,37 @@
   </div>
   <div class="data-container">
     <div class="graph-container">
-      <!-- <div class="chart"></div> -->
       <svg>
       </svg>
     </div>
-      <div class="data-table">{{dash.flightData.data.row_data | json}}</div>
+      <div class="data-table">
+        <table class="table">
+          <tr>
+            <th>
+              <td>Airline</td>
+              <td>Arrival</td>
+              <td>Departure</td>
+              <td>Date</td>
+              <td>Flight Number</td>
+              <td>Price</td>
+              <td>Purchase Date</td>
+              <td>Purchase Location</td>
+              <td>Suspect?</td>
+            </th>
+          </tr>
+
+          <tr ng-repeat="flight in data.data.chart_data">
+            <td>{{flight.price_paid]}}</td>
+            <td>Arrival</td>
+            <td>Departure</td>
+            <td>Date</td>
+            <td>Flight Number</td>
+            <td>Price</td>
+            <td>Purchase Date</td>
+            <td>Purchase Location</td>
+            <td>Suspect?</td>
+          </tr>
+
+        </table>{{dash.flightData.data.row_data | json}}</div>
     </div>
 </main>
