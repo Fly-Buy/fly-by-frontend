@@ -132,20 +132,8 @@ svg {
       overflow: scroll;
       display: flex;
       flex-direction: column;
-      .table-header {
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-        width: 100%;
-        background-color:#e1e1e1;
-        height:25px;
-        position: fixed;
-        margin-top: -25px;
-        .column {
-          flex-wrap: wrap;
-          margin-right: 5%;
-          margin-left: 2%;
-        }
+      table {
+        
       }
     }
   }
