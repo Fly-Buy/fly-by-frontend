@@ -17,8 +17,9 @@ angular.module('flyBuyApp')
       console.log('flight data: ', data);
       that.flightData = data;
       barChart = graphs.chartOne(data.data.chart_data);
-      // will put something like this for each graph:
-      // pieChart = graphs.chartTwo(data.data.row_data)
+      // To Do:
+      // pieChart = graphs.chartTwo(data.data.row_data);
+      // lineChart = graphs.chartThree(data.data.row_data);
     });
 
     this.flightInfo = {
@@ -40,7 +41,6 @@ angular.module('flyBuyApp')
     api.getAirports.query(function(data){
       that.airports = data;
     });
-
 
     this.postFlight = function(flightInfo){
       console.log(flightInfo);
