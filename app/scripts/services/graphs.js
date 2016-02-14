@@ -9,12 +9,9 @@
 
 angular.module('flyBuyApp')
   .service('graphs', function ($resource, $http, apihost, d3) {
-
-    // var that = this;
-
     var flightData = $http({method:'POST', url: apihost + '/flights/dashboard'})
 
-    var barChart = function(price){
+    var chartOne = function(price){
       //generates a bar chart based on price
       var x = d3.scale.linear()
       .domain([0, d3.max(price)])
@@ -29,6 +26,6 @@ angular.module('flyBuyApp')
 
     return {
       flightData: flightData,
-      barChart: barChart
+      chartOne: chartOne
     };
   });
