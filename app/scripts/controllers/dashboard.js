@@ -11,13 +11,14 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs) {
 
     var that = this;
-
-    var barChart = {};
+    var chartOne = {};
 
     graphs.flightData.then(function(data){
       console.log('flight data: ', data);
       that.flightData = data;
-      barChart = graphs.barChart(data.data.chart_data);
+      barChart = graphs.chartOne(data.data.chart_data);
+      // will put something like this for each graph:
+      // pieChart = graphs.chartTwo(data.data.row_data)
     });
 
     this.flightInfo = {
