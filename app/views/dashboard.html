@@ -4,25 +4,21 @@
     <p>Type into any field to begin</p>
     <form class="left-input-form" ng-model="dash.flightInfo" name="flightinfoform">
      <input tooltip-placement="right" uib-tooltip="Flight Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-required="true" ng-model="dash.flightInfo.flightDate" placeholder="Flight Date" name="flight_date" />
-
      <input tooltip-placement="right" uib-tooltip="Airline" type="text" ng-model="dash.flightInfo.Airline" placeholder="Airline" uib-typeahead="airline as airline.name for airline in dash.airlines | filter:$viewValue | limitTo:8" typeahead-loading="dash.loadingLocations" typeahead-no-results="dash.noResultsAirline">
      <i ng-show="dash.loadingLocations" class="glyphicon glyphicon-refresh"></i>
      <div ng-show="dash.noResultsAirline">
        <i class="glyphicon glyphicon-remove"></i> No Results Found
      </div>
-
      <input tooltip-placement="right" uib-tooltip="Departure Airport" type="text" ng-model="dash.flightInfo.DepartureAirport" ng-required="true" placeholder="Departure Airport" uib-typeahead="airport as airport.name for airport in dash.airports | filter:$viewValue | limitTo:8" typeahead-loading="dash.loadingLocations" typeahead-no-results="dash.noResultsDepAirport">
      <i ng-show="dash.loadingLocations" class="glyphicon glyphicon-refresh"></i>
      <div ng-show="dash.noResultsDepAirport">
        <i class="glyphicon glyphicon-remove"></i> No Results Found
      </div>
-
      <input tooltip-placement="right" uib-tooltip="Arrival Airport" type="text" ng-model="dash.flightInfo.ArrivalAirport" ng-required="true" placeholder="Arrival Airport" uib-typeahead="airport as airport.name for airport in dash.airports | filter:$viewValue | limitTo:8" typeahead-loading="dash.loadingLocations" typeahead-no-results="dash.noResultsArrAirport">
      <i ng-show="dash.loadingLocations" class="glyphicon glyphicon-refresh"></i>
      <div ng-show="dash.noResultsArrAirport">
        <i class="glyphicon glyphicon-remove"></i> No Results Found
      </div>
-
      <input tooltip-placement="right" uib-tooltip="Purchase Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="dash.flightInfo.purchaseDate" placeholder="Purchase Date" name="purchase_date" />
      <input tooltip-placement="right" uib-tooltip="Flight #" type="text" ng-model="dash.flightInfo.flightNum" placeholder="Flight Number" name="flight_number"/>
      <input tooltip-placement="right" uib-tooltip="Price ($)" type="number" ng-model="dash.flightInfo.pricePaid" ng-required="true" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
@@ -39,10 +35,37 @@
   </div>
   <div class="data-container">
     <div class="graph-container">
-      <div class="chart"></div>
-
-
+      <svg>
+      </svg>
     </div>
-      <div class="data-table">{{dash.flightData.data.row_data | json}}</div>
+      <div class="data-table">
+        <table class="table">
+          <tr>
+            <th>
+              <td>Airline</td>
+              <td>Arrival</td>
+              <td>Departure</td>
+              <td>Date</td>
+              <td>Flight Number</td>
+              <td>Price</td>
+              <td>Purchase Date</td>
+              <td>Purchase Location</td>
+              <td>Suspect?</td>
+            </th>
+          </tr>
+
+          <tr ng-repeat="flight in data.data.chart_data">
+            <td>{{flight.price_paid]}}</td>
+            <td>Arrival</td>
+            <td>Departure</td>
+            <td>Date</td>
+            <td>Flight Number</td>
+            <td>Price</td>
+            <td>Purchase Date</td>
+            <td>Purchase Location</td>
+            <td>Suspect?</td>
+          </tr>
+
+        </table>{{dash.flightData.data.row_data | json}}</div>
     </div>
 </main>
