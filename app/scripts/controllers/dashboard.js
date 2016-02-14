@@ -16,7 +16,7 @@ angular.module('flyBuyApp')
     graphs.flightData.then(function(data){
       console.log('flight data: ', data);
       that.flightData = data;
-      barChart = graphs.chartOne(data.data.chart_data);
+      chartOne = graphs.chartOne(data.data.chart_data);
       // To Do:
       // pieChart = graphs.chartTwo(data.data.row_data);
       // lineChart = graphs.chartThree(data.data.row_data);
