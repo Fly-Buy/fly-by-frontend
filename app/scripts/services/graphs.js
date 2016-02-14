@@ -13,15 +13,20 @@ angular.module('flyBuyApp')
 
     var chartOne = function(price){
       //generates a bar chart based on price
-      var x = d3.scale.linear()
-      .domain([0, d3.max(price)])
-      .range([0, 420]);
-      d3.select(".chart")
-        .selectAll("div")
-          .data(price)
-        .enter().append("div")
-          .style("width", function(d) { return x(d) + "px"; })
-          .text(function(d) { return d; });
+       var yScale = d3.scale.linear().domain([0,24500]).range([0,100]);
+      d3.select("svg")
+      .selectAll("rect")
+      .data(price)
+      .enter()
+      .append("rect")
+      .attr("width", 10)
+      .attr("height", function(d) {return yScale(d)})
+      .style("fill", "blue")
+      .style("stroke", "red")
+      .style("stroke-width", "1px")
+      .style("opacity", .25)
+      .attr("x", function(d,i) {return i * 10})
+      .attr("y", function(d) {return 100 - yScale(d)});
     };
 
     return {
