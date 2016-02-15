@@ -16,6 +16,16 @@ body {
 h3 { font-size: 1.5em; }
 .brand-svg { height:20%; width:20%; margin:auto; margin-top:5%; }
 
+//////////////////////////////////////////// HELPER CLASSES
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
 //////////////////////////////////////////// NAVBAR
 
 .nav-bar {
