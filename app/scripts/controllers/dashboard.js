@@ -90,6 +90,7 @@ angular.module('flyBuyApp')
       values: [
           { "label" : "A" , "value" : -29.765957771107 },
           { "label" : "B" , "value" : 0 },
+          { "label" : "B" , "value" : 1 },
           { "label" : "C" , "value" : 32.807804682612 },
           { "label" : "D" , "value" : 196.45946739256 },
           { "label" : "E" , "value" : 0.19434030906893 },
