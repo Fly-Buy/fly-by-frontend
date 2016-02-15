@@ -10,7 +10,7 @@
 angular.module('flyBuyApp')
   .service('graphs', function ($resource, $http, apihost, d3) {
 
-    var flightData = $http({method:'POST', url: apihost + '/flights/dashboard'})
+    var flightData = $http({method:'POST', url: apihost + '/flights/dashboard/chart1'})
 
     var chartOne = function(price){
       var yScale = d3.scale.linear().domain([0, d3.max(price)]).range([0,200]);
