@@ -12,7 +12,7 @@ angular.module('flyBuyApp')
 
     // var that = this;
 
-    var flightData = $http({method:'POST', url: apihost + '/flights/dashboard'})
+    var flightData = $http({method:'POST', url: apihost + '/flights/dashboard/chart1'})
 
     var barChart = function(price){
       //generates a bar chart based on price

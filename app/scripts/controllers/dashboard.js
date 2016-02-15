@@ -15,9 +15,10 @@ angular.module('flyBuyApp')
     var barChart = {};
 
     graphs.flightData.then(function(data){
-      console.log('flight data: ', data);
+      console.log('flight data: ', data.data.chart_data);
       that.flightData = data;
-      barChart = graphs.barChart(data.data.chart_data);
+      that.data = data.data.chart_data;
+      // barChart = graphs.barChart(data.data.chart_data);
     });
 
     this.flightInfo = {
@@ -59,45 +60,46 @@ angular.module('flyBuyApp')
     };
 
     this.options = {
-        chart: {
-            type: 'discreteBarChart',
-            height: 450,
-            margin : {
-                top: 20,
-                right: 20,
-                bottom: 60,
-                left: 55
-            },
-            x: function(d){ return d.label; },
-            y: function(d){ return d.value; },
-            showValues: true,
-            valueFormat: function(d){
-                return d3.format(',.4f')(d);
-            },
-            transitionDuration: 500,
-            xAxis: {
-                axisLabel: 'X Axis'
-            },
-            yAxis: {
-                axisLabel: 'Y Axis',
-                axisLabelDistance: 30
-            }
-        }
+      chart: {
+          type: 'multiBarChart',
+          height: 450,
+          width: 600,
+          margin : {
+              top: 20,
+              right: 20,
+              bottom: 60,
+              left: 70
+          },
+          x: function(d){ return d.label; },
+          y: function(d){ return d.value; },
+          showValues: true,
+          valueFormat: function(d){
+              return d3.format(',.4f')(d);
+          },
+          transitionDuration: 10,
+          xAxis: {
+              axisLabel: 'Airline'
+          },
+          yAxis: {
+              axisLabel: 'Price',
+              axisLabelDistance: 10
+          }
+      }
     };
 
-    this.data = [{
-      key: "Cumulative Return",
-      values: [
-          { "label" : "A" , "value" : -29.765957771107 },
-          { "label" : "B" , "value" : 0 },
-          { "label" : "B" , "value" : 1 },
-          { "label" : "C" , "value" : 32.807804682612 },
-          { "label" : "D" , "value" : 196.45946739256 },
-          { "label" : "E" , "value" : 0.19434030906893 },
-          { "label" : "F" , "value" : -98.079782601442 },
-          { "label" : "G" , "value" : -13.925743130903 },
-          { "label" : "H" , "value" : -5.1387322875705 }
-          ]
-      }];
+    // this.data = [{
+    //   key: "Cumulative Return",
+    //   values: [
+    //       { "label" : "A" , "value" : -29.765957771107 },
+    //       { "label" : "B" , "value" : 0 },
+    //       { "label" : "B" , "value" : 1 },
+    //       { "label" : "C" , "value" : 32.807804682612 },
+    //       { "label" : "D" , "value" : 196.45946739256 },
+    //       { "label" : "E" , "value" : 0.19434030906893 },
+    //       { "label" : "F" , "value" : -98.079782601442 },
+    //       { "label" : "G" , "value" : -13.925743130903 },
+    //       { "label" : "H" , "value" : -5.1387322875705 }
+    //       ]
+    //   }];
 
   });
