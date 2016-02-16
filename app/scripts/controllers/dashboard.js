@@ -23,13 +23,11 @@ angular.module('flyBuyApp')
       // To Do:
       // pieChart = graphs.chartTwo(data.data.row_data);
       // lineChart = graphs.chartThree(data.data.row_data);
-
     });
 
     graphs.pieData.then(function(data){
       console.log("here\'s your info!",  data.data.chart_data);
       that.data = data.data.chart_data;
-
     })
 
     this.flightInfo = {
@@ -68,7 +66,9 @@ angular.module('flyBuyApp')
       //   console.log('Form invalid: ', $scope.flightinfoform.$invalid);
       // }
     };
-    //
+
+    // THIS IS THE CODE FOR CHART ONE
+
     // this.options = {
     //   chart: {
     //       type: 'multiBarChart',
@@ -97,26 +97,70 @@ angular.module('flyBuyApp')
     //   }
     // };
 
+    // THIS IS THE CODE FOR CHART TWO
+
+    // this.options = {
+    //     chart: {
+    //         type: 'pieChart',
+    //         height: 500,
+    //         x: function(d){return d.label;},
+    //         y: function(d){return d.value;},
+    //         showLabels: true,
+    //         duration: 500000,
+    //         labelThreshold: 0.01,
+    //         labelSunbeamLayout: true,
+    //         legend: {
+    //             margin: {
+    //                 top: 5,
+    //                 right: 35,
+    //                 bottom: 5,
+    //                 left: 0
+    //             }
+    //         }
+    //     }
+    // };
+
+    // THIS IS THE CODE FOR THE SCATTER PLOT
+
     this.options = {
-        chart: {
-            type: 'pieChart',
-            height: 500,
-            x: function(d){return d.label;},
-            y: function(d){return d.value;},
-            showLabels: true,
-            duration: 500000,
-            labelThreshold: 0.01,
-            labelSunbeamLayout: true,
-            legend: {
-                margin: {
-                    top: 5,
-                    right: 35,
-                    bottom: 5,
-                    left: 0
-                }
-            }
-        }
-    };
+           chart: {
+               type: 'scatterChart',
+               height: 450,
+               color: d3.scale.category10().range(),
+               scatter: {
+                   onlyCircles: true
+               },
+               showDistX: true,
+               showDistY: true,
+               tooltipContent: function(key) {
+                   return '<h3>' + key + '</h3>';
+               },
+               duration: 350,
+               xAxis: {
+                   axisLabel: 'X Axis',
+                   tickFormat: function(d){
+                       return d3.format('.02f')(d);
+                   }
+               },
+               yAxis: {
+                   axisLabel: 'Y Axis',
+                   tickFormat: function(d){
+                       return d3.format('.02f')(d);
+                   },
+                   axisLabelDistance: -5
+               },
+               zoom: {
+                   //NOTE: All attributes below are optional
+                   enabled: false,
+                   scaleExtent: [1, 10],
+                   useFixedDomain: false,
+                   useNiceScale: false,
+                   horizontalOff: false,
+                   verticalOff: false,
+                   unzoomEventType: 'dblclick.zoom'
+               }
+           }
+       };
 
     /////////////// chart buttons toggle-buttons-container
     this.show = true;
