@@ -81,7 +81,7 @@
     width: 100%;
     margin-top: 5%;
     .feature-one {
-      height: 250px;
+      height: 300px;
       width: 90%;
       flex-direction: column;
       .feature-image {
@@ -90,7 +90,7 @@
       }
     }
     .feature-two {
-      height:250px;
+      height:300px;
       width:90%;
       flex-direction: column;
       .feature-image {
@@ -99,7 +99,7 @@
       }
     }
     .feature-three {
-      height:250px;
+      height:300px;
       width: 90%;
       flex-direction: column;
       .feature-image {
@@ -109,7 +109,8 @@
     }
   }
   .feature-text {
-    width: 90%;
+    width: 100%;
+    margin:0;
   }
 
   ////////////////////////////////////// CONTACT SECTION
