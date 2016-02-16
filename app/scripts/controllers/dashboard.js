@@ -11,7 +11,6 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
     var that = this;
-
     var barChart = {};
 
     graphs.flightData.then(function(data){
