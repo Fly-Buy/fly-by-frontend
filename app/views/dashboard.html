@@ -35,8 +35,15 @@
   </div>
   <div class="data-container">
     <div class="graph-container">
-      <svg>
-      </svg>
+
+      <!-- Bar chart -->
+      <nvd3 options="dash.options" data="dash.data" ng-show="show"></nvd3>
+      <!-- pie chart -->
+      <nvd3 options="dash.options" data="dash.data" ng-show="dash.show"></nvd3>
+
+      <button ng-click="dash.show = !dash.show;">Pie Chart</button>
+      <button ng-click="">Bar Chart</button>
+
     </div>
       <div class="data-table">
         <table class="table">
@@ -54,7 +61,7 @@
             </th>
           </tr>
 
-          <tr ng-repeat="flight in data.data.chart_data">
+          <!-- <tr ng-repeat="flight in data.data.chart_data">
             <td>{{flight.price_paid]}}</td>
             <td>Arrival</td>
             <td>Departure</td>
@@ -64,7 +71,7 @@
             <td>Purchase Date</td>
             <td>Purchase Location</td>
             <td>Suspect?</td>
-          </tr>
+          </tr> -->
 
         </table>{{dash.flightData.data.row_data | json}}</div>
     </div>
