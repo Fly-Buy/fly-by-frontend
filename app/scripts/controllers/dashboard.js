@@ -11,22 +11,19 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
     var that = this;
-<<<<<<< HEAD
+
     var barChart = {};
-=======
-    var chartOne = {};
->>>>>>> dev
+
 
     graphs.flightData.then(function(data){
       console.log('flight data: ', data.data.chart_data);
       that.flightData = data;
-<<<<<<< HEAD
-=======
+
       chartOne = graphs.chartOne(data.data.chart_data);
       // To Do:
       // pieChart = graphs.chartTwo(data.data.row_data);
       // lineChart = graphs.chartThree(data.data.row_data);
->>>>>>> dev
+
     });
 
     graphs.pieData.then(function(data){
@@ -99,29 +96,6 @@ angular.module('flyBuyApp')
     //       }
     //   }
     // };
-
-
-    // this.pieChart = {
-    //   chart: {
-    //     type: 'pieChart',
-    //     height: 500,
-    //     x: function(d){return d.key;},
-    //     y: function(d){return d.y;},
-    //     showLabels: true,
-    //     duration: 500,
-    //     labelThreshold: 0.01,
-    //     labelSunbeamLayout: true,
-    //     legend: {
-    //       margin: {
-    //           top: 5,
-    //           right: 35,
-    //           bottom: 5,
-    //           left: 0
-    //       }
-    //     }
-    //   }
-    // }
-
 
     this.options = {
         chart: {
