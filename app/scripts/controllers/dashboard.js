@@ -16,21 +16,15 @@ angular.module('flyBuyApp')
 
 
     graphs.flightData.then(function(data){
-      console.log('flight data: ', data.data.chart_data);
-      that.flightData = data;
-
-      chartOne = graphs.chartOne(data.data.chart_data);
-      // To Do:
-      // pieChart = graphs.chartTwo(data.data.row_data);
-      // lineChart = graphs.chartThree(data.data.row_data);
-
+      console.log('that.data: ', data.data.chart_data);
+      that.data = data.data.chart_data;
     });
 
-    graphs.pieData.then(function(data){
-      console.log("here\'s your info!",  data.data.chart_data);
-      that.data = data.data.chart_data;
-
-    })
+    // graphs.pieData.then(function(data){
+    //   console.log("here\'s your info!",  data.data.chart_data);
+    //   that.data = data.data.chart_data;
+    //
+    // })
 
     this.flightInfo = {
       user: {},
@@ -97,26 +91,78 @@ angular.module('flyBuyApp')
     //   }
     // };
 
+
     this.options = {
-        chart: {
-            type: 'pieChart',
-            height: 500,
-            x: function(d){return d.label;},
-            y: function(d){return d.value;},
-            showLabels: true,
-            duration: 500000,
-            labelThreshold: 0.01,
-            labelSunbeamLayout: true,
-            legend: {
-                margin: {
-                    top: 5,
-                    right: 35,
-                    bottom: 5,
-                    left: 0
+            chart: {
+                type: 'multiBarChart',
+                height: 350,
+                width: 600,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 45,
+                    left: 75
+                },
+                showControls: false,
+                clipEdge: false,
+                //staggerLabels: true,
+                duration: 500,
+                stacked: false,
+                xAxis: {
+                    axisLabel: 'Flights Tracked',
+                    showMaxMin: false,
+                    tickFormat: function(d){
+                        return d3.format(',f')(d);
+                    }
+                },
+                yAxis: {
+                    axisLabel: 'Price',
+                    axisLabelDistance: -14,
+                    tickFormat: function(d){
+                        return d3.format(',f')(d);
+                    }
                 }
             }
-        }
-    };
+        };
+
+//     this.data = [{
+//     "key": "Stream0",
+//     "values": [{
+//         "x": 0,
+//         "y": 0.16284738584101344
+//     }, {
+//         "x": 1,
+//         "y": 2.370283172738109
+//     }, {
+//         "x": 2,
+//         "y": 0.1631208266452718
+//     }, {
+//         "x": 3,
+//         "y": 0.24609871793543797
+//     }, {
+//         "x": 4,
+//         "y": 1.5096133160633776
+//     }]
+// }, {
+//     "key": "Stream1",
+//     "values": [{
+//         "x": 0,
+//         "y": 0.12566330679904006
+//     }, {
+//         "x": 1,
+//         "y": 0.1321859413211272
+//     }, {
+//         "x": 2,
+//         "y": 1.4798247902549135
+//     }, {
+//         "x": 3,
+//         "y": 0.10870538273358979
+//     }, {
+//         "x": 4,
+//         "y": 0.16155091711225184
+//     }]
+// }]
+
 
     /////////////// chart buttons toggle-buttons-container
     this.show = true;
