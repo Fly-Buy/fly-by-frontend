@@ -10,6 +10,10 @@
 angular.module('flyBuyApp')
   .service('graphs', function ($resource, $http, apihost, d3) {
 
+<<<<<<< HEAD
+    var flightData = $http({method:'POST', url: apihost + '/flights/dashboard/chart1'});
+    var pieData = $http({method:'POST', url: apihost + '/flights/dashboard/chart2'});
+=======
     var flightData = $http({method:'POST', url: apihost + '/flights/dashboard'})
 
     var chartOne = function(price){
@@ -28,6 +32,7 @@ angular.module('flyBuyApp')
             .attr("x", function(d,i) {return i * 20})
             .attr("y", function(d) {return 200 - yScale(d)});
     };
+>>>>>>> dev
 
     var lineChart = function(price){
       var data = [3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 7],
@@ -83,9 +88,14 @@ angular.module('flyBuyApp')
 
     return {
       flightData: flightData,
+<<<<<<< HEAD
+      pieData: pieData
+=======
       chartOne: chartOne, // bar chart price of all flights
       lineChart: lineChart // line chart price of all flights
       // chartTwo: chartTwo, // Origin --> Destination chart
       // chartThree: chartThree // Prices over departure date (by flight)
+>>>>>>> dev
     };
+
   });

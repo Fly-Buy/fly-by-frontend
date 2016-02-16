@@ -8,19 +8,32 @@
  * Controller of the flyBuyApp
  */
 angular.module('flyBuyApp')
-  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs) {
+  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
     var that = this;
+<<<<<<< HEAD
+    var barChart = {};
+=======
     var chartOne = {};
+>>>>>>> dev
 
     graphs.flightData.then(function(data){
-      console.log('flight data: ', data);
+      console.log('flight data: ', data.data.chart_data);
       that.flightData = data;
+<<<<<<< HEAD
+=======
       chartOne = graphs.chartOne(data.data.chart_data);
       // To Do:
       // pieChart = graphs.chartTwo(data.data.row_data);
       // lineChart = graphs.chartThree(data.data.row_data);
+>>>>>>> dev
     });
+
+    graphs.pieData.then(function(data){
+      console.log("here\'s your info!",  data.data.chart_data);
+      that.data = data.data.chart_data;
+
+    })
 
     this.flightInfo = {
       user: {},
@@ -58,5 +71,88 @@ angular.module('flyBuyApp')
       //   console.log('Form invalid: ', $scope.flightinfoform.$invalid);
       // }
     };
+    //
+    // this.options = {
+    //   chart: {
+    //       type: 'multiBarChart',
+    //       height: 450,
+    //       width: 600,
+    //       margin : {
+    //         top: 20,
+    //         right: 20,
+    //         bottom: 60,
+    //         left: 70
+    //       },
+    //       x: function(d){ return d.label; },
+    //       y: function(d){ return d.value; },
+    //       showValues: true,
+    //       valueFormat: function(d){
+    //           return d3.format(',.4f')(d);
+    //       },
+    //       transitionDuration: 10,
+    //       xAxis: {
+    //           axisLabel: 'Airline'
+    //       },
+    //       yAxis: {
+    //           axisLabel: 'Price',
+    //           axisLabelDistance: 10
+    //       }
+    //   }
+    // };
 
-  });
+
+    // this.pieChart = {
+    //   chart: {
+    //     type: 'pieChart',
+    //     height: 500,
+    //     x: function(d){return d.key;},
+    //     y: function(d){return d.y;},
+    //     showLabels: true,
+    //     duration: 500,
+    //     labelThreshold: 0.01,
+    //     labelSunbeamLayout: true,
+    //     legend: {
+    //       margin: {
+    //           top: 5,
+    //           right: 35,
+    //           bottom: 5,
+    //           left: 0
+    //       }
+    //     }
+    //   }
+    // }
+
+
+    this.options = {
+        chart: {
+            type: 'pieChart',
+            height: 500,
+            x: function(d){return d.label;},
+            y: function(d){return d.value;},
+            showLabels: true,
+            duration: 500000,
+            labelThreshold: 0.01,
+            labelSunbeamLayout: true,
+            legend: {
+                margin: {
+                    top: 5,
+                    right: 35,
+                    bottom: 5,
+                    left: 0
+                }
+            }
+        }
+    };
+
+    /////////////// chart buttons toggle-buttons-container
+    this.show = true;
+
+    this.showMe = function(){
+      this.show=true;
+    }
+    this.hideMe = function(){
+      this.show=false;
+    }
+
+
+});
