@@ -11,11 +11,22 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
     var that = this;
+<<<<<<< HEAD
     var barChart = {};
+=======
+    var chartOne = {};
+>>>>>>> dev
 
     graphs.flightData.then(function(data){
       console.log('flight data: ', data.data.chart_data);
       that.flightData = data;
+<<<<<<< HEAD
+=======
+      chartOne = graphs.chartOne(data.data.chart_data);
+      // To Do:
+      // pieChart = graphs.chartTwo(data.data.row_data);
+      // lineChart = graphs.chartThree(data.data.row_data);
+>>>>>>> dev
     });
 
     graphs.pieData.then(function(data){
@@ -43,7 +54,6 @@ angular.module('flyBuyApp')
     api.getAirports.query(function(data){
       that.airports = data;
     });
-
 
     this.postFlight = function(flightInfo){
       console.log(flightInfo);
