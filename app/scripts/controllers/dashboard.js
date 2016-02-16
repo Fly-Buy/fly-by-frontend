@@ -17,6 +17,17 @@ angular.module('flyBuyApp')
 
     graphs.flightData.then(function(data){
       console.log('that.data: ', data.data.chart_data);
+      that.flightData = data;
+
+      // chartOne = graphs.chartOne(data.data.chart_data);
+      // To Do:
+      // pieChart = graphs.chartTwo(data.data.row_data);
+      // lineChart = graphs.chartThree(data.data.row_data);
+
+    });
+
+    graphs.pieData.then(function(data){
+      console.log("here\'s your info!",  data.data.chart_data);
       that.data = data.data.chart_data;
     });
 

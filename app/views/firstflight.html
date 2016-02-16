@@ -1,8 +1,8 @@
 <main class="first-flight-container">
   <div class="left-pane">
     <h1>Welcome, {{ff.user.name}}</h1>
-    <img src="path/to/img" />
-    <h2>Please enter some flight info to begin using our app</h2>
+    <img src="../images/alex.png" />
+    <h2>Please enter some flight info to begin using our app.</h2>
   </div>
   <div class="right-pane">
     <form class="first-flight-form" ng-model="ff.insertFlight" name="firstflightform">
@@ -30,7 +30,8 @@
      <input tooltip-placement="right" uib-tooltip="Flight #" type="text" ng-model="ff.insertFlight.flightNum" placeholder="Flight Number" name="flight_number"/>
      <input tooltip-placement="right" uib-tooltip="Price ($)" type="number" ng-model="ff.insertFlight.pricePaid" ng-required="true" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
      <input tooltip-placement="right" uib-tooltip="Purchase Location" type="text" ng-model="ff.insertFlight.purchaseLocation" placeholder="Purchase Location" name="purchase_location" />
-     <input type="submit" value="Submit Flight Info" ng-disabled="ff.noResultsAirline || ff.noResultsDepAirport || ff.noResultsArrAirport" ng-click="ff.postFlight(ff.insertFlight)">
+
+     <input type="submit" class="submit-flight" value="Submit Flight Info" ng-disabled="ff.noResultsAirline || ff.noResultsDepAirport || ff.noResultsArrAirport" ng-click="ff.postFlight(ff.insertFlight)">
    </form>
   </div>
 </main>
