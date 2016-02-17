@@ -13,6 +13,7 @@ angular.module('flyBuyApp')
     var flightData = $http({method:'POST', url: apihost + '/flights/dashboard/chart1'});
     var pieData = $http({method:'POST', url: apihost + '/flights/dashboard/chart2'});
 
+
     return {
       flightData: flightData,
       pieData: pieData
