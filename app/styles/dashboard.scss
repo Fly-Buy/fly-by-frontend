@@ -7,18 +7,18 @@
   flex-direction: row;
   background-color: white;
 
-svg {
-  width: 100%;
-  height:100%;
-  margin-top: 1%;
-}
+  svg {
+    width: 100%;
+    height:100%;
+    margin-top: 1%;
+  }
 
-.nv-x .tick line {
-  display: none;
-}
-.nv-y .tick line {
-  display: none;
-}
+  .nv-x .tick line {
+    display: none;
+  }
+  .nv-y .tick line {
+    display: none;
+  }
 
   ///////////////////////////// LEFT BAR STYLES
 
@@ -27,11 +27,10 @@ svg {
     font-weight: 300;
     color:rgb(58,120,180);
     width: 400px;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(to bottom, #9cd0f7, rgb(98,160,220));
     display:flex;
     flex-direction: column;
-    position: relative;
     .input-bar-header {
       margin: 5%;
       margin-top: 5%;
@@ -51,16 +50,6 @@ svg {
         height:50px;
         border:none;
       }
-      // input {
-      //   display:flex;
-      //   flex-direction: column;
-      //   margin:auto;
-      //   width:80%;
-      //   height: 50px;
-      //   border:none;
-      //   border-bottom:1px solid black;
-      //   margin-top:10px;
-      // }
       input {
         width: 80%;
         margin: auto;
@@ -120,13 +109,13 @@ svg {
     }
   }
 
-.toggle-buttons-container .add-flight-button:hover {
+  .toggle-buttons-container .add-flight-button:hover {
     background-color: white;
   }
 
-.toggle-buttons-container .search-button {
-  background-color: white;
-}
+  .toggle-buttons-container .search-button {
+    background-color: white;
+  }
 
   /////////////////////////// DATA CONTAINER STYLES
 
@@ -139,7 +128,6 @@ svg {
     ///////////////////////// GRAPH STYLES
 
     .graph-container {
-
       display: flex;
       height:60vh;
       background-color: white;
