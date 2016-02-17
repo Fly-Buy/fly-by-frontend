@@ -7,7 +7,7 @@
  * # api
  * Service in the flyBuyApp.
  */
- 
+
 angular.module('flyBuyApp')
   .service('api', function ($resource, $http, apihost) {
 
@@ -15,12 +15,14 @@ angular.module('flyBuyApp')
     var airports = $resource(apihost + '/airports');
     var Flight = $resource(apihost + '/flights');
     var UserFlights = $resource(apihost + '/user/:userID', {userID: '@id'});
+    var UserInfo = $resource(apihost + '/userinfo');
 
     return {
       getAirlines: airlines,
       getAirports: airports,
       flights: Flight,
       UserFlights: UserFlights,
+      UserInfo: UserInfo,
       postFlight: function(flightInfo){
         console.log(flightInfo);
         var newFlight = new Flight();

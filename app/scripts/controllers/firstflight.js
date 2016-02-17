@@ -36,6 +36,13 @@ angular.module('flyBuyApp')
       console.log(data);
     });
 
+    api.UserInfo.query(function(data){
+      var modifyUserInfo = data[0];
+      modifyUserInfo.user_image = modifyUserInfo.user_image.substring(0, modifyUserInfo.user_image.length - 5);
+      console.log(modifyUserInfo);
+      that.userinfo = modifyUserInfo;
+    });
+
     this.postFlight = function(insertFlight){
       if ($scope.firstflightform.$valid) {
         api.postFlight(insertFlight)
