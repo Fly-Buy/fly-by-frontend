@@ -7,6 +7,7 @@
  * # DashboardCtrl
  * Controller of the flyBuyApp
  */
+ 
 angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
