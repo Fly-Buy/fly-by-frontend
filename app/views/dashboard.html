@@ -45,11 +45,6 @@
       <button ng-click="">Bar Chart</button> -->
 
     </div>
-      <!-- <div class="data-table">
-        <table class="table">
-          {{dash.row_data}}
-        </table>
-      </div> -->
       <div class="data-table">
         <table class="table">
           <tr>
@@ -66,9 +61,9 @@
             <!-- </th> -->
           </tr>
           <tr ng-repeat="flight in dash.row_data">
-            <td>{{flight.icao}}</td>
-            <td>{{flight.arrival_airport_id}}</td>
-            <td>{{flight.departure_airport_id}}</td>
+            <td>{{flight.icao}}<br>{{dash.airlines[flight.airline_id-1].name}}</td>
+            <td>{{dash.airports[flight.arrival_airport_id-1].name}}</td>
+            <td>{{flight.name}}</td>
             <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
             <td>{{flight.flight_number}}</td>
             <td>{{flight.price_paid}}</td>
