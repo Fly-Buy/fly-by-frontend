@@ -11,11 +11,51 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
     var that = this;
     var barChart = {};
+
     graphs.flightData.then(function(data){
       console.log('that.data: ', data.data.chart_data);
       that.data = data.data.chart_data;
       that.row_data = data.data.row_data;
     });
+
+
+      var updateNewData = function(){
+        var updateGData = new graphs.flightData2();
+        updateGData = updateGData.$save();
+        updateGData.then(function(data){
+          console.log(data);
+          console.log('that.data2: ', data.chart_data);
+          console.log('that.row_data2: ', data.row_data);
+          that.data = data.chart_data;
+          that.row_data = data.row_data;
+        });
+      };
+
+      this.limitData = function(flightInfo){
+        console.log(flightInfo);
+        var searchGData = new graphs.flightData2();
+        searchGData.user_id = null;
+        searchGData.flight_date = flightInfo.flightDate || null;
+        searchGData.purchase_date = flightInfo.purchaseDate || null;
+        searchGData.flight_number = flightInfo.flightNum || null;
+        searchGData.price_paid = flightInfo.pricePaid;
+        searchGData.purchase_location = flightInfo.purchaseLocation || null;
+        searchGData.departure_airport_id = flightInfo.DepartureAirport ? flightInfo.DepartureAirport.id: undefined;
+        searchGData.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : undefined;
+        searchGData.airline_id = flightInfo.Airline ? flightInfo.Airline.id : undefined;
+        searchGData.suspect = flightInfo.suspect || false;
+        searchGData = searchGData.$save();
+        searchGData.then(function(data){
+          console.log(data);
+          console.log('that.data2: ', data.chart_data);
+          console.log('that.row_data2: ', data.row_data);
+          that.data = data.chart_data;
+          that.row_data = data.row_data;
+        });
+      };
+
+      updateNewData();
+
 
     this.flightInfo = {
       user: {},
@@ -39,21 +79,23 @@ angular.module('flyBuyApp')
 
     this.postFlight = function(flightInfo){
       console.log(flightInfo);
-      // if ($scope.flightinfoform.$valid) {
-      //   api.postFlight(flightInfo)
-      //     .then(function(result){
-      //       console.log(result);
-      //       if (result.rowCount === 1) {
-      //         $location.path('/dashboard');
-      //       } else {
-      //         console.log('It didn\'t insert');
-      //       }
-      //     });
-      // } else {
-      //   console.log('Form invalid: ', $scope.flightinfoform.$invalid);
-      // }
+      if ($scope.flightinfoform.$valid) {
+        api.postFlight(flightInfo)
+          .then(function(result){
+            console.log(result);
+            if (result.rowCount === 1) {
+              console.log("It worked");
+              updateNewData();
+            } else {
+              console.log('It didn\'t insert');
+            }
+          });
+      } else {
+        console.log('Form invalid: ', $scope.flightinfoform.$invalid);
+      }
     };
-    //
+
+
     // this.options = {
     //   chart: {
     //       type: 'multiBarChart',
@@ -123,8 +165,12 @@ angular.module('flyBuyApp')
     this.show = true;
     this.showMe = function(){
       this.show=true;
-    }
+    };
     this.hideMe = function(){
       this.show=false;
+
     }
+
+    };
+
 });
