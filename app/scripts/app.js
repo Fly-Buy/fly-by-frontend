@@ -23,7 +23,7 @@ angular
     'ui.bootstrap',
     'nvd3'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
@@ -43,6 +43,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    $httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.headers.common;
   })
   // .constant('apihost', 'https://fly-buy.cfapps.io');
   .constant('apihost', 'http://127.0.0.1:3000');
