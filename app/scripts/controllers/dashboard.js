@@ -9,52 +9,13 @@
  */
 angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
-
     var that = this;
     var barChart = {};
-
-      var updateNewData = function(){
-        var updateGData = new graphs.flightData2();
-        updateGData = updateGData.$save();
-        updateGData.then(function(data){
-          console.log(data);
-          console.log('that.data2: ', data.chart_data);
-          console.log('that.row_data2: ', data.row_data);
-          that.data = data.chart_data;
-          that.row_data = data.row_data;
-        });
-      };
-
-      this.limitData = function(flightInfo){
-        console.log(flightInfo);
-        var searchGData = new graphs.flightData2();
-        searchGData.user_id = null;
-        searchGData.flight_date = flightInfo.flightDate || null;
-        searchGData.purchase_date = flightInfo.purchaseDate || null;
-        searchGData.flight_number = flightInfo.flightNum || null;
-        searchGData.price_paid = flightInfo.pricePaid;
-        searchGData.purchase_location = flightInfo.purchaseLocation || null;
-        searchGData.departure_airport_id = flightInfo.DepartureAirport ? flightInfo.DepartureAirport.id: undefined;
-        searchGData.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : undefined;
-        searchGData.airline_id = flightInfo.Airline ? flightInfo.Airline.id : undefined;
-        searchGData.suspect = flightInfo.suspect || false;
-        searchGData = searchGData.$save();
-        searchGData.then(function(data){
-          console.log(data);
-          console.log('that.data2: ', data.chart_data);
-          console.log('that.row_data2: ', data.row_data);
-          that.data = data.chart_data;
-          that.row_data = data.row_data;
-        });
-      };
-
-      updateNewData();
-
-    // graphs.pieData.then(function(data){
-    //   console.log("here\'s your info!",  data.data.chart_data);
-    //   that.data = data.data.chart_data;
-    //
-    // })
+    graphs.flightData.then(function(data){
+      console.log('that.data: ', data.data.chart_data);
+      that.data = data.data.chart_data;
+      that.row_data = data.data.row_data;
+    });
 
     this.flightInfo = {
       user: {},
@@ -78,23 +39,21 @@ angular.module('flyBuyApp')
 
     this.postFlight = function(flightInfo){
       console.log(flightInfo);
-      if ($scope.flightinfoform.$valid) {
-        api.postFlight(flightInfo)
-          .then(function(result){
-            console.log(result);
-            if (result.rowCount === 1) {
-              console.log("It worked");
-              updateNewData();
-            } else {
-              console.log('It didn\'t insert');
-            }
-          });
-      } else {
-        console.log('Form invalid: ', $scope.flightinfoform.$invalid);
-      }
+      // if ($scope.flightinfoform.$valid) {
+      //   api.postFlight(flightInfo)
+      //     .then(function(result){
+      //       console.log(result);
+      //       if (result.rowCount === 1) {
+      //         $location.path('/dashboard');
+      //       } else {
+      //         console.log('It didn\'t insert');
+      //       }
+      //     });
+      // } else {
+      //   console.log('Form invalid: ', $scope.flightinfoform.$invalid);
+      // }
     };
-
-
+    //
     // this.options = {
     //   chart: {
     //       type: 'multiBarChart',
@@ -123,12 +82,15 @@ angular.module('flyBuyApp')
     //   }
     // };
 
+    // This checks the width of the browser
+    // and sets it equal to the width variable
 
+    var width = $(".graph-container").width();
     this.options = {
             chart: {
                 type: 'multiBarChart',
-                height: 350,
-                width: 600,
+                height: 500,
+                width: width * .75,
                 margin : {
                     top: 20,
                     right: 20,
@@ -137,7 +99,6 @@ angular.module('flyBuyApp')
                 },
                 showControls: false,
                 clipEdge: false,
-                //staggerLabels: true,
                 duration: 500,
                 stacked: false,
                 xAxis: {
@@ -157,54 +118,15 @@ angular.module('flyBuyApp')
             }
         };
 
-//     this.data = [{
-//     "key": "Stream0",
-//     "values": [{
-//         "x": 0,
-//         "y": 0.16284738584101344
-//     }, {
-//         "x": 1,
-//         "y": 2.370283172738109
-//     }, {
-//         "x": 2,
-//         "y": 0.1631208266452718
-//     }, {
-//         "x": 3,
-//         "y": 0.24609871793543797
-//     }, {
-//         "x": 4,
-//         "y": 1.5096133160633776
-//     }]
-// }, {
-//     "key": "Stream1",
-//     "values": [{
-//         "x": 0,
-//         "y": 0.12566330679904006
-//     }, {
-//         "x": 1,
-//         "y": 0.1321859413211272
-//     }, {
-//         "x": 2,
-//         "y": 1.4798247902549135
-//     }, {
-//         "x": 3,
-//         "y": 0.10870538273358979
-//     }, {
-//         "x": 4,
-//         "y": 0.16155091711225184
-//     }]
-// }]
-
-
     /////////////// chart buttons toggle-buttons-container
     this.show = true;
 
     this.showMe = function(){
       this.show=true;
-    };
+    }
     this.hideMe = function(){
       this.show=false;
-    };
+    }
 
 
 });
