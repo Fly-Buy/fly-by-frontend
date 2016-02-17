@@ -481,7 +481,10 @@ module.exports = function (grunt) {
             'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'bower_components/ng-lodash/build/ng-lodash.js',
             'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-            'bower_components/d3/d3.js'
+            'bower_components/d3/d3.js',
+            'bower_components/nvd3/build/nv.d3.css',
+            'bower_components/nvd3/build/nv.d3.js',
+            'bower_components/angular-nvd3/dist/angular-nvd3.js'
           ],
           dest: '<%= yeoman.dist %>'
         }]

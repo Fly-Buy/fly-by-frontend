@@ -1,6 +1,6 @@
 {
-  "firebase": "blistering-heat-2054",
-  "public": ".",
+  "firebase": "fly-buy",
+  "public": "sDist",
   "ignore": [
     "firebase.json",
     "**/.*",
