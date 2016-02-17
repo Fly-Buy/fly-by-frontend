@@ -9,12 +9,72 @@
 //////////////////////////////////////////// GLOBAL STYLES
 
 body {
-  font-family: "Helvetica";
+  font-family: 'Lato', sans-serif;
   // background: linear-gradient(to bottom,  rgba(98,160,220, 1), rgba(108,228,176,1) );
   background-color: white;
 }
 h3 { font-size: 1.5em; }
 .brand-svg { height:20%; width:20%; margin:auto; margin-top:5%; }
+
+input {
+  color:black;
+}
+
+
+//////////////////////////////////////////// HELPER CLASSES
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+
+@function long-shadow($direction, $length, $color, $fade: false, $shadow-count: 100) {
+  $shadows: ();
+  $conversion-map: (
+    to top: 180deg,
+    to top right: 135deg,
+    to right top: 135deg,
+    to right: 90deg,
+    to bottom right: 45deg,
+    to right bottom: 45deg,
+    to bottom: 0deg,
+    to bottom left: 315deg,
+    to left bottom: 315deg,
+    to left: 270deg,
+    to left top: 225deg,
+    to top left: 225deg
+  );
+
+  @if map-has-key($conversion-map, $direction) {
+    $direction: map-get($conversion-map, $direction);
+  }
+
+  @for $i from 1 through $shadow-count {
+    $current-step: ($i * $length / $shadow-count);
+    $current-color: if(not $fade, $color, if(type-of($fade) == 'color',  mix($fade, $color, ($i / $shadow-count * 100)), rgba($color, 1 - $i / $shadow-count)));
+
+    $shadows: append($shadows, (sin(0deg + $direction) * $current-step) (cos(0deg + $direction) * $current-step) 0 $current-color, 'comma');
+  }
+
+  @return $shadows;
+}
+
+.longshadow {
+  text-shadow: long-shadow(
+    // Shadow should have an angle of 42 degrees
+    $direction: 45deg,
+    // Shadow should be contain within a 100x100 box
+    $length: 20px,
+    // Shadow should start this color
+    $color: tomato,
+    // To finish this color
+    $fade: orange
+  );
+}
 
 //////////////////////////////////////////// NAVBAR
 
@@ -53,35 +113,43 @@ header {
   display:flex;
   align-items: center;
   justify-content: center;
+  background: url("../images/sky.jpg");
+  position: relative;
   .header-content{
     display: flex; flex-direction: column;
     h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       font-size:4em;
-      color:#424242;
-      font-style: italic;
-      font-weight: bolder;
-      transition: text-shadow 2s;
+      color:black;
+      transition: color 2s, text-shadow 2s ease;
     }
     h1:hover{
-      text-shadow:  1px 1px rgba(255, 121, 97, 0.5) , 2px 2px rgba(255, 121, 97, 0.50056) , 3px 3px rgba(255, 121, 96, 0.50111) , 4px 4px rgba(255, 121, 96, 0.50167) , 5px 5px rgba(255, 122, 96, 0.50222) , 6px 6px rgba(255, 122, 95, 0.50278) , 7px 7px rgba(255, 122, 95, 0.50333) , 8px 8px rgba(255, 122, 95, 0.50389) , 9px 9px rgba(255, 122, 94, 0.50444) , 10px 10px rgba(255, 122, 94, 0.505) , 11px 11px rgba(255, 122, 94, 0.50556) , 12px 12px rgba(255, 123, 94, 0.50611) , 13px 13px rgba(255, 123, 93, 0.50667) , 14px 14px rgba(255, 123, 93, 0.50722) , 15px 15px rgba(255, 123, 93, 0.50778) , 16px 16px rgba(255, 123, 92, 0.50833) , 17px 17px rgba(255, 123, 92, 0.50889) , 18px 18px rgba(255, 123, 92, 0.50944) , 19px 19px rgba(255, 124, 91, 0.51) , 20px 20px rgba(255, 124, 91, 0.51056) , 21px 21px rgba(255, 124, 91, 0.51111) , 22px 22px rgba(255, 124, 91, 0.51167) , 23px 23px rgba(255, 124, 90, 0.51222) , 24px 24px rgba(255, 124, 90, 0.51278) , 25px 25px rgba(255, 124, 90, 0.51333) , 26px 26px rgba(255, 124, 89, 0.51389) , 27px 27px rgba(255, 125, 89, 0.51444) , 28px 28px rgba(255, 125, 89, 0.515) , 29px 29px rgba(255, 125, 88, 0.51556) , 30px 30px rgba(255, 125, 88, 0.51611) , 31px 31px rgba(255, 125, 88, 0.51667) , 32px 32px rgba(255, 125, 88, 0.51722) , 33px 33px rgba(255, 125, 87, 0.51778),
+      text-shadow:  1px 1px rgba(255, 121, 97, 0.5) , 2px 2px rgba(255, 121, 97, 0.50056) , 3px 3px rgba(255, 121, 96, 0.50111) , 4px 4px rgba(255, 121, 96, 0.50167) , 5px 5px rgba(255, 122, 96, 0.50222) , 6px 6px rgba(255, 122, 95, 0.50278) , 7px 7px rgba(255, 122, 95, 0.50333) , 8px 8px rgba(255, 122, 95, 0.50389) , 9px 9px rgba(255, 122, 94, 0.50444) , 10px 10px rgba(255, 122, 94, 0.505) , 11px 11px rgba(255, 122, 94, 0.50556) , 12px 12px rgba(255, 123, 94, 0.50611) , 13px 13px rgba(255, 123, 93, 0.50667) , 14px 14px rgba(255, 123, 93, 0.50722) , 15px 15px rgba(255, 123, 93, 0.50778) , 16px 16px rgba(255, 123, 92, 0.50833) , 17px 17px rgba(255, 123, 92, 0.50889) , 18px 18px rgba(255, 123, 92, 0.50944) , 19px 19px rgba(255, 124, 91, 0.51) , 20px 20px rgba(255, 124, 91, 0.51056) , 21px 21px rgba(255, 124, 91, 0.51111) , 22px 22px rgba(255, 124, 91, 0.51167) , 23px 23px rgba(255, 124, 90, 0.51222) , 24px 24px rgba(255, 124, 90, 0.51278) , 25px 25px rgba(255, 124, 90, 0.51333) , 26px 26px rgba(255, 124, 89, 0.51389) , 27px 27px rgba(255, 125, 89, 0.51444) , 28px 28px rgba(255, 125, 89, 0.515) , 29px 29px rgba(255, 125, 88, 0.51556) , 30px 30px rgba(255, 125, 88, 0.51611) , 31px 31px rgba(255, 125, 88, 0.51667) , 32px 32px rgba(255, 125, 88, 0.51722) , 33px 33px rgba(255, 125, 87, 0.51778);
+      color: white;
     }
     h2 {
-      font-size: 1.75em; margin: 50px; color:#424242; font-weight: 300;
+      font-size: 1.75em; margin: 50px; color:black; font-weight: 300;
+      font-family: 'Lato', sans-serif;
     }
     button {
-      border: 1px solid rgba(98,160,220, 1);
-      background: transparent;
-      color: rgba(98,160,220, 1);
+      font-family: 'Lato', sans-serif;
+      border: none;
+      background-color:rgba(98,160,220, 1);
+      color: white;
       border-radius: 30px;
       margin: auto;
+      font-size: 1.25em;
       padding:auto;
-      transition: color .5s, background-color .5s;
+      transition: color .5s ease, background-color .5s ease;
+      width: 350px;
+      height: 60px;
+      font-weight: 300;
     }
     button:hover {
-      border: 1px solid rgba(98,160,220, 1);
       background: white;
-      color:  white;
-      background-color: rgb(98,160,220);
+      color:rgba(98,160,220, 1);
+      background-color: white;
     }
   }
 }
@@ -89,6 +157,7 @@ header {
 /////////////////////////////////////////// ABOUT SECTION
 
 .about {
+  padding-top: 45px;
   height: 100%;
   background: transparent;
   display: flex;
@@ -97,6 +166,7 @@ header {
   justify-content: center;
   margin: auto;
   .about-content {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,15 +179,24 @@ header {
     font-weight: normal;
     transition: border-radius .5s;
     p {
-      font-weight: lighter;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       line-height: 1.5em;
       margin: 7%;
+      font-size: 1.25em;
+      text-align:center;
+    }
+    p::first-letter {
+      font-weight: 300;
+      font-size: 1.25em;
     }
   }
   h3 {
+    font-family: 'Lato', sans-serif;
     font-size: 1.5em;
     margin: 7%;
     font-weight: 300;
+    weight:300;
   }
 }
 
@@ -129,15 +208,22 @@ header {
   width: 90%;
   margin-top: 5%;
   margin: auto;
+  align-items: center;
   h3 {
-    padding: 5%;
+    padding-top: 5%;
+    padding-left: 12%;
+    padding-bottom: 5%;
     font-weight: 300;
+    color:  rgb(98,160,220);
   }
   p {
     padding-left: 5%;
     padding-right: 5%;
     font-weight: lighter;
     line-height: 1.5em;
+    font-size: 1.25em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
   }
   .feature-one {
     height: 200px;
@@ -145,6 +231,7 @@ header {
     background: white;
     margin:auto;
     align-items: center;
+    text-align: left;
     display: flex;
     flex-direction: row;
     margin-top:2%;
@@ -165,6 +252,7 @@ header {
     display: flex;
     flex-direction: row;
     margin-top:2%;
+    text-align: left;
     .feature-image {
       width: 50%;
       background-color: white;
@@ -182,6 +270,7 @@ header {
     display: flex;
     flex-direction: row;
     margin-top:2%;
+    text-align: left;
     .feature-image {
       width: 50%;
       background-color: white;
@@ -195,9 +284,25 @@ header {
   width: 50%;
   background-color: white;
   height:90%;
+  // transition: background-color .5s ease;
   p {
-    padding-left:10%;
-    padding-right:10%;
+    padding-left:12%;
+    padding-right:15%;
+  }
+  p::first-letter {
+    font-weight: 300;
+    font-size: 1.25em;
+  }
+}
+.feature-text:hover {
+  background-color:  rgb(98,160,220);
+  color:white;
+  h3 {
+    color: #9cd0f7;
+    font-style: italic;
+  }
+  p {
+    font-weight: 300;
   }
 }
 
@@ -225,19 +330,24 @@ header {
     font-weight: 200;
   }
   button {
-    border: 1px solid rgba(98,160,220, 1);
+    font-family: 'Lato', sans-serif;
+    border: 1px solid white;
     background: transparent;
-    color: rgba(98,160,220, 1);
+    color: white;
     border-radius: 30px;
     margin: auto;
+    font-size: 1.25em;
     padding:auto;
-    transition: color .5s, background-color .5s;
+    transition: color .5s ease, background-color .5s ease;
+    width: 350px;
+    height: 60px;
+    font-weight: 300;
   }
   button:hover {
     border: 1px solid rgba(98,160,220, 1);
     background: white;
-    color:  white;
-    background-color: rgb(98,160,220);
+    color:rgba(98,160,220, 1);;
+    background-color: white;
   }
 }
 

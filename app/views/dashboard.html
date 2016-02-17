@@ -35,13 +35,25 @@
   </div>
   <div class="data-container">
     <div class="graph-container">
-      <svg>
-      </svg>
+
+      <!-- Bar chart -->
+      <nvd3 options="dash.options" data="dash.data" ng-show="show"></nvd3>
+      <!-- pie chart -->
+      <nvd3 options="dash.options" data="dash.data" ng-show="dash.show"></nvd3>
+
+      <!-- <button ng-click="dash.show = !dash.show;">Pie Chart</button>
+      <button ng-click="">Bar Chart</button> -->
+
     </div>
+      <!-- <div class="data-table">
+        <table class="table">
+          {{dash.row_data}}
+        </table>
+      </div> -->
       <div class="data-table">
         <table class="table">
           <tr>
-            <th>
+            <!-- <th> -->
               <td>Airline</td>
               <td>Arrival</td>
               <td>Departure</td>
@@ -51,21 +63,20 @@
               <td>Purchase Date</td>
               <td>Purchase Location</td>
               <td>Suspect?</td>
-            </th>
+            <!-- </th> -->
           </tr>
-
-          <tr ng-repeat="flight in data.data.chart_data">
-            <td>{{flight.price_paid]}}</td>
-            <td>Arrival</td>
-            <td>Departure</td>
-            <td>Date</td>
-            <td>Flight Number</td>
-            <td>Price</td>
-            <td>Purchase Date</td>
-            <td>Purchase Location</td>
-            <td>Suspect?</td>
+          <tr ng-repeat="flight in dash.row_data">
+            <td>{{flight.icao}}</td>
+            <td>{{flight.arrival_airport_id}}</td>
+            <td>{{flight.departure_airport_id}}</td>
+            <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
+            <td>{{flight.flight_number}}</td>
+            <td>{{flight.price_paid}}</td>
+            <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
+            <td>{{flight.purchase_location}}</td>
+            <td>{{flight.suspect}}</td>
           </tr>
-
-        </table>{{dash.flightData.data.row_data | json}}</div>
+        </table>
+      </div>
     </div>
 </main>
