@@ -91,12 +91,20 @@ angular.module('flyBuyApp')
     //   }
     // };
 
+    // This checks the width of the browser
+    // and sets it equal to the width variable
+
+    $(window).resize(function(){
+
+    })
+    this.width = $(".graph-container").width();
+
 
     this.options = {
             chart: {
                 type: 'multiBarChart',
-                height: 350,
-                width: 600,
+                height: 500,
+                width: this.width,
                 margin : {
                     top: 20,
                     right: 20,
@@ -105,7 +113,6 @@ angular.module('flyBuyApp')
                 },
                 showControls: false,
                 clipEdge: false,
-                //staggerLabels: true,
                 duration: 500,
                 stacked: false,
                 xAxis: {
