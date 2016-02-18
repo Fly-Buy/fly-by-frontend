@@ -484,7 +484,9 @@ module.exports = function (grunt) {
             'bower_components/d3/d3.js',
             'bower_components/nvd3/build/nv.d3.css',
             'bower_components/nvd3/build/nv.d3.js',
-            'bower_components/angular-nvd3/dist/angular-nvd3.js'
+            'bower_components/angular-nvd3/dist/angular-nvd3.js',
+            'bower_components/angular-nvd3/dist/angular-nvd3.js',
+            'bower_components/ng-table/dist/ng-table.js'
           ],
           dest: '<%= yeoman.dist %>'
         }]

@@ -117,7 +117,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
+    // position: fixed;
 
     ///////////////////////// GRAPH STYLES
 
@@ -131,11 +131,11 @@
 
     .data-table {
       height: 40vh;
-      background-color: rgb(250,250,250);
-      width: 100%;
-      overflow: scroll;
-      display: flex;
-      flex-direction: column;
+      // background-color: rgb(250,250,250);
+      // width: 100%;
+      overflow-y: scroll;
+      // display: flex;
+      // flex-direction: column;
 
     }
   }

@@ -9,9 +9,19 @@
  */
 
 angular.module('flyBuyApp')
-  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
+  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3, NgTableParams) {
 
     var that = this;
+
+    this.dateFormat = api.dateFormat;
+    this.flightDatePopupState = {opened: false};
+    this.flightDatePopup = function() {
+      that.flightDatePopupState.opened = true;
+    };
+    this.purchaseDatePopupState = {opened: false};
+    this.purchaseDatePopup = function() {
+      that.purchaseDatePopupState.opened = true;
+    };
 
     this.flightInfo = {
       user: {},
@@ -165,7 +175,15 @@ angular.module('flyBuyApp')
             }
         };
 
+    this.tableParams = new NgTableParams(tableParameters, tableSettings);
 
+    var tableParameters = {
+      sorting: {flight_date: 'asc'}
+    };
+
+    var tableSettings = {
+      dataset: this.row_data
+    };
 
     /////////////// chart buttons toggle-buttons-container
     this.show = true;
