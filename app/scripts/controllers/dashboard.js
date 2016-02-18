@@ -17,8 +17,8 @@ angular.module('flyBuyApp')
         updateGData = updateGData.$save();
         updateGData.then(function(data){
           // console.log(data);
-          // console.log('that.data2: ', data.chart_data);
-          // console.log('that.row_data2: ', data.row_data);
+          console.log('that.data2: ', data.chart_data);
+          console.log('that.row_data2: ', data.row_data);
           that.data = data.chart_data;
           that.row_data = data.row_data;
         });

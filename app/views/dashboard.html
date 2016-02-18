@@ -3,7 +3,7 @@
     <h1 class='input-bar-header'>Search for a flight</h1>
     <p>Type into any field to begin</p>
     <form class="left-input-form" ng-model="dash.flightInfo" name="flightinfoform">
-     <input tooltip-placement="right" uib-tooltip="Flight Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-required="true" ng-model="dash.flightInfo.flightDate" placeholder="Flight Date" name="flight_date" />
+     <input tooltip-placement="right" uib-tooltip="Flight Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-required="true" ng-model="dash.flightInfo.flightDate" ng-blur="dash.limitData(dash.flightInfo)" placeholder="Flight Date" name="flight_date" />
      <input tooltip-placement="right" uib-tooltip="Airline" type="text" ng-model="dash.flightInfo.Airline" ng-blur="dash.limitData(dash.flightInfo)" placeholder="Airline" uib-typeahead="airline as airline.name for airline in dash.airlines | filter:$viewValue | limitTo:8" typeahead-loading="dash.loadingLocations" typeahead-no-results="dash.noResultsAirline">
      <i ng-show="dash.loadingLocations" class="glyphicon glyphicon-refresh"></i>
      <div ng-show="dash.noResultsAirline">
@@ -21,7 +21,7 @@
      </div>
      <input tooltip-placement="right" uib-tooltip="Purchase Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="dash.flightInfo.purchaseDate" placeholder="Purchase Date" name="purchase_date" />
      <input tooltip-placement="right" uib-tooltip="Flight #" type="text" ng-model="dash.flightInfo.flightNum" placeholder="Flight Number" name="flight_number"/>
-     <input tooltip-placement="right" uib-tooltip="Price ($)" type="number" ng-model="dash.flightInfo.pricePaid" ng-required="true" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
+     <input tooltip-placement="right" uib-tooltip="Price ($)" type="number" ng-model="dash.flightInfo.pricePaid" ng-blur="dash.limitData(dash.flightInfo)" ng-required="true" placeholder="Price" name="price_paid" min="0" step="1" value="100"/>
      <input tooltip-placement="right" uib-tooltip="Purchase Location" type="text" ng-model="dash.flightInfo.purchaseLocation" placeholder="Purchase Location" name="purchase_location" />
    </form>
     <div class="toggle-buttons-container">
@@ -69,10 +69,10 @@
             <td>{{flight.icao}}<br>{{flight.airline}}</td>
             <td>{{flight.arrival}}</td>
             <td>{{flight.departure}}</td>
-            <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
+            <td>{{flight.flight_date | date:'MM-dd-yyyy':'+0700'}}</td>
             <td>{{flight.flight_number}}</td>
             <td>{{flight.price_paid}}</td>
-            <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
+            <td>{{flight.purchase_date | date:'MM-dd-yyyy':'+0700'}}</td>
             <td>{{flight.purchase_location}}</td>
             <td>{{flight.suspect}}</td>
           </tr>
