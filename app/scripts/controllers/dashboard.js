@@ -133,7 +133,7 @@ angular.module('flyBuyApp')
                       'Flight Number: ' + key.data.z.flight_number + '<br>' +
                       'Departure: ' + key.data.z.departure + '<br>' +
                       'Arrival: ' + key.data.z.arrival + '<br>' +
-                      'Flight Date: ' + new Date(key.data.z.flight_date).toDateString() + '<br>' +
+                      'Flight Date: ' + new Date(key.data.z.flight_date).toLocaleDateString('en-US', {timeZone: 'UTC'}) + '<br>' +
                       'Price: $' + key.data.z.price_paid + '<br>' +
                       'Source: ' + key.data.z.purchase_location
                     );
