@@ -46,9 +46,9 @@
 
     </div>
       <div class="data-table">
-        <table class="table">
+        <table class="main-table">
           <tr>
-            <!-- <th> -->
+            <div class="fixer">
               <td>Airline</td>
               <td>Arrival</td>
               <td>Departure</td>
@@ -58,7 +58,7 @@
               <td>Purchase Date</td>
               <td>Purchase Location</td>
               <td>Suspect?</td>
-            <!-- </th> -->
+            </div>
           </tr>
           <tr ng-repeat="flight in dash.row_data">
             <td>{{flight.icao}}<br>{{flight.airline}}</td>

@@ -1,30 +1,22 @@
-table {
+thead, tbody, tr, th { display: block; }
+
+
+
+.data-table {
   width: 100%;
-  tr {
+  overflow: scroll;
+  overflow-x: scroll;
+  height: 40vh;
+  .main-table {
     width: 100%;
-    height: 4em;
-  }
-  td {
-    margin: auto;
-    width: 50px;
-  }
-  td:first-child {
-    box-shadow: inset 1px 0 0 #fff;
-  }
-  td:last-child {
-    border-right: 1px solid #e8e8e8;
-    box-shadow: inset -1px 0 0 #fff;
-  }
-  tr:nth-child(odd) td {
-    background-color: rgba(249,249,249, .7);
-  }
-  tr:last-of-type td {
-    box-shadow: inset 0 -1px 0 #fff;
-  }
-  tr:last-of-type td:first-child {
-    box-shadow: inset 1px -1px 0 #fff;
-  }
-  tr:last-of-type td:last-child {
-    box-shadow: inset -1px -1px 0 #fff;
+    tr {
+      height: 70px;
+    }
+    tr:first-child {
+      position: fixed;
+    }
+    td {
+      width: 7%;
+    }
   }
 }
