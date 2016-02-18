@@ -7,6 +7,7 @@
  * # DashboardCtrl
  * Controller of the flyBuyApp
  */
+
 angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
@@ -88,6 +89,7 @@ angular.module('flyBuyApp')
       }
     };
 
+
     var width = $(".graph-container").width();
     var height = $(".graph-container").height();
     this.options = {
@@ -140,5 +142,9 @@ angular.module('flyBuyApp')
                 }
             }
         };
+
+
+
+    /////////////// chart buttons toggle-buttons-container
     this.show = true;
 });
