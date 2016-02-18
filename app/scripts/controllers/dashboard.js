@@ -11,22 +11,21 @@ angular.module('flyBuyApp')
   .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
 
     var that = this;
-    var barChart = {};
 
       var updateNewData = function(){
         var updateGData = new graphs.flightData2();
         updateGData = updateGData.$save();
         updateGData.then(function(data){
-          console.log(data);
-          console.log('that.data2: ', data.chart_data);
-          console.log('that.row_data2: ', data.row_data);
+          // console.log(data);
+          // console.log('that.data2: ', data.chart_data);
+          // console.log('that.row_data2: ', data.row_data);
           that.data = data.chart_data;
           that.row_data = data.row_data;
         });
       };
 
       this.limitData = function(flightInfo){
-        console.log(flightInfo);
+        // console.log(flightInfo);
         var searchGData = new graphs.flightData2();
         searchGData.user_id = null;
         searchGData.flight_date = flightInfo.flightDate || null;
@@ -40,9 +39,9 @@ angular.module('flyBuyApp')
         searchGData.suspect = flightInfo.suspect || false;
         searchGData = searchGData.$save();
         searchGData.then(function(data){
-          console.log(data);
-          console.log('that.data2: ', data.chart_data);
-          console.log('that.row_data2: ', data.row_data);
+          // console.log(data);
+          // console.log('that.data2: ', data.chart_data);
+          // console.log('that.row_data2: ', data.row_data);
           that.data = data.chart_data;
           that.row_data = data.row_data;
         });
@@ -50,11 +49,6 @@ angular.module('flyBuyApp')
 
       updateNewData();
 
-    // graphs.pieData.then(function(data){
-    //   console.log("here\'s your info!",  data.data.chart_data);
-    //   that.data = data.data.chart_data;
-    //
-    // })
 
     this.flightInfo = {
       user: {},
@@ -94,36 +88,6 @@ angular.module('flyBuyApp')
       }
     };
 
-
-    // this.options = {
-    //   chart: {
-    //       type: 'multiBarChart',
-    //       height: 450,
-    //       width: 600,
-    //       margin : {
-    //         top: 20,
-    //         right: 20,
-    //         bottom: 60,
-    //         left: 70
-    //       },
-    //       x: function(d){ return d.label; },
-    //       y: function(d){ return d.value; },
-    //       showValues: true,
-    //       valueFormat: function(d){
-    //           return d3.format(',.4f')(d);
-    //       },
-    //       transitionDuration: 10,
-    //       xAxis: {
-    //           axisLabel: 'Airline'
-    //       },
-    //       yAxis: {
-    //           axisLabel: 'Price',
-    //           axisLabelDistance: 10
-    //       }
-    //   }
-    // };
-
-
     this.options = {
             chart: {
                 type: 'multiBarChart',
@@ -140,6 +104,8 @@ angular.module('flyBuyApp')
                 //staggerLabels: true,
                 duration: 500,
                 stacked: false,
+                groupSpacing: 0.15,
+                noData: "No flights found for search parameters.",
                 xAxis: {
                     axisLabel: 'Flights Tracked',
                     showMaxMin: false,
@@ -148,63 +114,29 @@ angular.module('flyBuyApp')
                     }
                 },
                 yAxis: {
-                    axisLabel: 'Price',
+                    axisLabel: 'Price ($)',
                     axisLabelDistance: -14,
                     tickFormat: function(d){
                         return d3.format(',f')(d);
                     }
+                },
+                tooltip: {
+                  contentGenerator: function (key) {
+                    // console.log(key.data.z);
+                    return (
+                      '<p>' +
+                      'Airline: ' + key.data.z.airline + '<br>' +
+                      'Flight Number: ' + key.data.z.flight_number + '<br>' +
+                      'Departure: ' + key.data.z.departure + '<br>' +
+                      'Arrival: ' + key.data.z.arrival + '<br>' +
+                      'Flight Date: ' + new Date(key.data.z.flight_date).toDateString() + '<br>' +
+                      'Price: $' + key.data.z.price_paid + '<br>' +
+                      'Source: ' + key.data.z.purchase_location
+                    );
+                  },
+                  headerEnabled: false
                 }
             }
         };
-
-//     this.data = [{
-//     "key": "Stream0",
-//     "values": [{
-//         "x": 0,
-//         "y": 0.16284738584101344
-//     }, {
-//         "x": 1,
-//         "y": 2.370283172738109
-//     }, {
-//         "x": 2,
-//         "y": 0.1631208266452718
-//     }, {
-//         "x": 3,
-//         "y": 0.24609871793543797
-//     }, {
-//         "x": 4,
-//         "y": 1.5096133160633776
-//     }]
-// }, {
-//     "key": "Stream1",
-//     "values": [{
-//         "x": 0,
-//         "y": 0.12566330679904006
-//     }, {
-//         "x": 1,
-//         "y": 0.1321859413211272
-//     }, {
-//         "x": 2,
-//         "y": 1.4798247902549135
-//     }, {
-//         "x": 3,
-//         "y": 0.10870538273358979
-//     }, {
-//         "x": 4,
-//         "y": 0.16155091711225184
-//     }]
-// }]
-
-
-    /////////////// chart buttons toggle-buttons-container
     this.show = true;
-
-    this.showMe = function(){
-      this.show=true;
-    };
-    this.hideMe = function(){
-      this.show=false;
-    };
-
-
 });

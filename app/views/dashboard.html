@@ -57,7 +57,7 @@
               <td>Airline</td>
               <td>Arrival</td>
               <td>Departure</td>
-              <td>Date</td>
+              <td>Flight Date</td>
               <td>Flight Number</td>
               <td>Price</td>
               <td>Purchase Date</td>
@@ -66,9 +66,9 @@
             <!-- </th> -->
           </tr>
           <tr ng-repeat="flight in dash.row_data">
-            <td>{{flight.icao}}<br>{{dash.airlines[flight.airline_id-1].name}}</td>
-            <td>{{dash.airports[flight.arrival_airport_id-1].name}}</td>
-            <td>{{flight.name}}</td>
+            <td>{{flight.icao}}<br>{{flight.airline}}</td>
+            <td>{{flight.arrival}}</td>
+            <td>{{flight.departure}}</td>
             <td>{{flight.purchase_date | date:'MM-dd-yyyy'}}</td>
             <td>{{flight.flight_number}}</td>
             <td>{{flight.price_paid}}</td>
