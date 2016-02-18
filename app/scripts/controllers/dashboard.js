@@ -88,11 +88,13 @@ angular.module('flyBuyApp')
       }
     };
 
+    var width = $(".graph-container").width();
+    var height = $(".graph-container").height();
     this.options = {
             chart: {
                 type: 'multiBarChart',
-                height: 350,
-                width: 600,
+                height: height - 50,
+                width: width * .75,
                 margin : {
                     top: 20,
                     right: 20,
