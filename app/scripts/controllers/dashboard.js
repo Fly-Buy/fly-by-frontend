@@ -13,6 +13,18 @@ angular.module('flyBuyApp')
 
     var that = this;
 
+    this.flightInfo = {
+      user: {},
+      flightDate: null,
+      purchaseDate: null,
+      flightNum: null,
+      Airline: undefined,
+      DepartureAirport: null,
+      ArrivalAirport: null,
+      pricePaid: null,
+      purchaseLocation: null
+    };
+
       var updateNewData = function(){
         var updateGData = new graphs.flightData2();
         updateGData = updateGData.$save();
@@ -20,10 +32,33 @@ angular.module('flyBuyApp')
           // console.log(data);
           console.log('that.data2: ', data.chart_data);
           console.log('that.row_data2: ', data.row_data);
+          clearFlightInfo();
           that.data = data.chart_data;
           that.row_data = data.row_data;
         });
       };
+
+      var clearFlightInfo = function(){
+        that.flightInfo.user = {};
+        that.flightInfo.flightDate = null;
+        that.flightInfo.purchaseDate = null;
+        that.flightInfo.flightNum = null;
+        that.flightInfo.Airline = undefined;
+        that.flightInfo.DepartureAirport = null;
+        that.flightInfo.ArrivalAirport = null;
+        that.flightInfo.pricePaid = null;
+        that.flightInfo.purchaseLocation = null;
+        that.noResultsAirline = false;
+        that.noResultsDepAirport = false;
+        that.noResultsArrAirport = false;
+        // $scope.flightinfoform.$rollbackViewValue();
+        $scope.flightinfoform.$setPristine();
+        $scope.flightinfoform.$setUntouched();
+      };
+
+      this.updateNewData = updateNewData;
+
+      this.clearForm = clearFlightInfo;
 
       this.limitData = function(flightInfo){
         // console.log(flightInfo);
@@ -51,18 +86,6 @@ angular.module('flyBuyApp')
       updateNewData();
 
 
-    this.flightInfo = {
-      user: {},
-      flightDate: null,
-      purchaseDate: null,
-      flightNum: null,
-      Airline: null,
-      DepartureAirport: null,
-      ArrivalAirport: null,
-      pricePaid: null,
-      purchaseLocation: null
-    };
-
     api.getAirlines.query(function(data){
       that.airlines = data;
     });
@@ -72,7 +95,6 @@ angular.module('flyBuyApp')
     });
 
     this.postFlight = function(flightInfo){
-      console.log(flightInfo);
       if ($scope.flightinfoform.$valid) {
         api.postFlight(flightInfo)
           .then(function(result){
