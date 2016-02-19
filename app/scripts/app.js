@@ -43,8 +43,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-    $httpProvider.defaults.withCredentials = true;
+    // $httpProvider.defaults.withCredentials = true;
     $httpProvider.defaults.headers.common;
   })
-  .constant('apihost', 'https://fly-buy.cfapps.io');
-  // .constant('apihost', 'http://127.0.0.1:3000');
+  // .constant('apihost', 'https://fly-buy.cfapps.io');
+  .constant('apihost', 'http://127.0.0.1:3000');
