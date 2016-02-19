@@ -68,7 +68,8 @@ angular
       .when('/firstflight', {
         templateUrl: 'views/firstflight.html',
         controller: 'FFCtrl',
-        controllerAs: 'ff'
+        controllerAs: 'ff',
+        resolve: { loggedin: checkLoggedin }
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
