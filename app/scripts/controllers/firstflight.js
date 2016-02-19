@@ -12,6 +12,16 @@ angular.module('flyBuyApp')
     //"this" is $scope basically (known as "ff" in the template)
     var that = this;
 
+    this.dateFormat = api.dateFormat;
+    this.flightDatePopupState = {opened: false};
+    this.flightDatePopup = function() {
+      that.flightDatePopupState.opened = true;
+    };
+    this.purchaseDatePopupState = {opened: false};
+    this.purchaseDatePopup = function() {
+      that.purchaseDatePopupState.opened = true;
+    };
+
     this.insertFlight = {
       user: {},
       flightDate: null,

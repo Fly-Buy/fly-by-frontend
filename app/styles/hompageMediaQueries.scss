@@ -42,17 +42,17 @@
 //////////////////////////////////////  NAVBAR
 
   .nav-bar {
-    .nav-bar-right {
-      width:20%;
-      margin-left:10%;
-      a {
-      }
+    height: 100px;
+    .links {
+      margin-left: -150px;
     }
-    .nav-bar-left {
-      margin-left:10%;
-      width:60%;
+    .logo{
+      margin-left: -50px;
     }
   }
+
+/////////////////////////////////// ABOUT
+
   .about {
     display: block;
     background: transparent;

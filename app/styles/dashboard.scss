@@ -1,18 +1,14 @@
-
-
 .dashboard {
   height: 100vh;
   width: 100%;
   display:flex;
   flex-direction: row;
   background-color: white;
-
   svg {
     width: 100%;
     height:100%;
     margin-top: 1%;
   }
-
   .nv-x .tick line {
     display: none;
   }
@@ -26,11 +22,8 @@
     font-family: "Lato";
     font-weight: 300;
     color:rgb(58,120,180);
-    width: 400px;
-    height: 100%;
     background: linear-gradient(to bottom, #9cd0f7, rgb(98,160,220));
-    display:flex;
-    flex-direction: column;
+    width: 20%;
     .input-bar-header {
       margin: 5%;
       margin-top: 5%;
@@ -82,25 +75,113 @@
         display: flex;
         align-items: center;
         width:50%;
-        background-color: #9cd0f7;;
+        background-color: white;
         margin: auto;
         height: 50px;
         justify-content: center;
         border-top-left-radius:25px;
-        border-bottom-left-radius:25px;
+        border-bottom-left-radius:0px;
+        color: #FF726D;
+        margin-bottom: -20px;
+        button {
+          border:none;
+        }
+      }
+      .search-button:hover {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #FF726D;
+        margin: auto;
+        height: 50px;
+        justify-content: center;
+        border-top-left-radius:25px;
+        border-bottom-left-radius:0px;
+        color: white;
+        margin-bottom: -20px;
         button {
           border:none;
         }
       }
       .add-flight-button {
-        color: #9cd0f7;
+        color: #369965;
         display: flex;
         align-items: center;
         width:50%;
-        background-color: rgba(98,160,220, 1);
+        background-color: white;
         height: 50px;
         justify-content: center;
         border-top-right-radius:25px;
+        border-bottom-right-radius:0px;
+        margin-bottom: -20px;
+        button {
+          border:none;
+        }
+      }
+      .add-flight-button:hover {
+        color: white;
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #369965;
+        height: 50px;
+        justify-content: center;
+        border-top-right-radius:25px;
+        border-bottom-right-radius:0px;
+      }
+      .logout-button {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #A5D5FF;
+        margin: auto;
+        height: 50px;
+        justify-content: center;
+        border-top-left-radius:0px;
+        border-bottom-left-radius:25px;
+        color: white;
+        button {
+          border:none;
+        }
+      }
+      .logout-button:hover {
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #62a0dc;
+        margin: auto;
+        height: 50px;
+        justify-content: center;
+        border-top-left-radius:0  px;
+        border-bottom-left-radius:25px;
+        color: white;
+        button {
+          border:none;
+        }
+      }
+      .home-button {
+        color: white;
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #A5D5FF;
+        height: 50px;
+        justify-content: center;
+        border-top-right-radius:0px;
+        border-bottom-right-radius:25px;
+        button {
+          border:none;
+        }
+      }
+      .home-button:hover {
+        color: white;
+        display: flex;
+        align-items: center;
+        width:50%;
+        background-color: #62a0dc;
+        height: 50px;
+        justify-content: center;
+        border-top-right-radius:0px;
         border-bottom-right-radius:25px;
         button {
           border:none;
@@ -120,43 +201,32 @@
   /////////////////////////// DATA CONTAINER STYLES
 
   .data-container {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    // position: fixed;
 
     ///////////////////////// GRAPH STYLES
 
     .graph-container {
-      display: flex;
       height:60vh;
-      background-color: white;
       width: 100%;
-      align-items: center;
-      justify-content: center;
-      .histogram {
-        margin-top: 500px;
-      }
-      rect {
-        fill: steelblue;
-        stroke: white;
-      }
-      line {
-        stroke: black;
-        shape-rendering: crispEdges;
-      }
+      background-color: white;
     }
-
     ////////////////////////// TABLE STYLES
+
 
     .data-table {
       height: 40vh;
-      background-color: rgb(250,250,250);
       width: 100%;
-      overflow: scroll;
-      display: flex;
-      flex-direction: column;
-
+      overflow-y: scroll;
+      .table {
+        width: 100%
+      }
+      thead {
+        background: linear-gradient(to bottom, rgba(130, 186, 233, 0.5), rgba(130, 186, 233, 1));
+      }
     }
   }
 }
