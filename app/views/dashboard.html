@@ -42,30 +42,23 @@
 
     </div>
       <div class="data-table">
-        <table class="table table-striped" ng-table="dash.tableParams" show-filter="true">
-          <tr class="">
-            <!-- <th> -->
-              <td>Airline</td>
-              <td>Arrival</td>
-              <td>Departure</td>
-              <td>Flight Date</td>
-              <td>Flight Number</td>
-              <td>Price</td>
-              <td>Purchase Date</td>
-              <td>Purchase Location</td>
-              <td>Suspect?</td>
-            <!-- </th> -->
-          </tr>
-          <tr class="datatable" ng-repeat="flight in dash.row_data">
-            <td>{{flight.icao}}<br>{{flight.airline}}</td>
-            <td>{{flight.arrival}}</td>
-            <td>{{flight.departure}}</td>
-            <td>{{flight.flight_date | date:'MM-dd-yyyy':'+0700'}}</td>
-            <td>{{flight.flight_number}}</td>
-            <td>{{flight.price_paid}}</td>
-            <td>{{flight.purchase_date | date:'MM-dd-yyyy':'+0700'}}</td>
-            <td>{{flight.purchase_location}}</td>
-            <td>{{flight.suspect}}</td>
+        <!-- <table class="table table-striped" ng-table="dash.tableParams" show-filter="false"> -->
+          <table class="table table-striped">
+          <thead>
+            <tr>
+              <td ng-repeat="col in dash.sorting" ng-click="dash.sort(col)">{{col.name}}</td>
+            </tr>
+          </thead>
+          <tr class="" ng-repeat="flight in dash.row_data | orderBy:dash.SortOrder:dash.reverseSort">
+            <td title="'Airline'" x-sortable="'airline'">{{flight.icao}}<br>{{flight.airline}}</td>
+            <td title="'Departure'" x-sortable="'departure'">{{flight.departure}}</td>
+            <td title="'Arrival'" x-sortable="'arrival'">{{flight.arrival}}</td>
+            <td title="'Flight Date'" x-sortable="'flight_date'">{{flight.flight_date | date:'MM/dd/yyyy':'+0700'}}</td>
+            <td title="'Flight #'" x-sortable="'flight_number'">{{flight.flight_number}}</td>
+            <td title="'Price'" x-sortable="'price_paid'">{{flight.price_paid | currency:"$":0}}</td>
+            <td title="'Purchase Date'" x-sortable="'purchase_date'">{{flight.purchase_date | date:'MM/dd/yyyy':'+0700'}}</td>
+            <td title="'Purchase Location'" x-sortable="'purchase_location'">{{flight.purchase_location}}</td>
+            <td title="'Suspect?'" x-sortable="'suspect'">{{flight.suspect}}</td>
           </tr>
         </table>
       </div>
