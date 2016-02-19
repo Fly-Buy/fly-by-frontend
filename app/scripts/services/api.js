@@ -17,12 +17,16 @@ angular.module('flyBuyApp')
     var UserFlights = $resource(apihost + '/user/:userID', {userID: '@id'});
     var UserInfo = $resource(apihost + '/userinfo');
 
+    var dateFormats = ['dd-MMMM-yyyy', 'MM/dd/yyyy', 'dd.MM.yyyy', 'shortDate'];
+    var dateFormat = dateFormats[1];
+
     return {
       getAirlines: airlines,
       getAirports: airports,
       flights: Flight,
       UserFlights: UserFlights,
       UserInfo: UserInfo,
+      dateFormat: dateFormat,
       postFlight: function(flightInfo){
         console.log(flightInfo);
         var newFlight = new Flight();

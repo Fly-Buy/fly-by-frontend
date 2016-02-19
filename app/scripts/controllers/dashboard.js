@@ -9,59 +9,113 @@
  */
 
 angular.module('flyBuyApp')
-  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3) {
+  .controller('DashboardCtrl', function ($scope, $http, $location, api, graphs, d3, NgTableParams) {
 
     var that = this;
 
-      var updateNewData = function(){
-        var updateGData = new graphs.flightData2();
-        updateGData = updateGData.$save();
-        updateGData.then(function(data){
-          // console.log(data);
-          console.log('that.data2: ', data.chart_data);
-          console.log('that.row_data2: ', data.row_data);
-          that.data = data.chart_data;
-          that.row_data = data.row_data;
-        });
-      };
-
-      this.limitData = function(flightInfo){
-        // console.log(flightInfo);
-        var searchGData = new graphs.flightData2();
-        searchGData.user_id = null;
-        searchGData.flight_date = flightInfo.flightDate || null;
-        searchGData.purchase_date = flightInfo.purchaseDate || null;
-        searchGData.flight_number = flightInfo.flightNum || null;
-        searchGData.price_paid = flightInfo.pricePaid;
-        searchGData.purchase_location = flightInfo.purchaseLocation || null;
-        searchGData.departure_airport_id = flightInfo.DepartureAirport ? flightInfo.DepartureAirport.id: undefined;
-        searchGData.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : undefined;
-        searchGData.airline_id = flightInfo.Airline ? flightInfo.Airline.id : undefined;
-        searchGData.suspect = flightInfo.suspect || false;
-        searchGData = searchGData.$save();
-        searchGData.then(function(data){
-          // console.log(data);
-          // console.log('that.data2: ', data.chart_data);
-          // console.log('that.row_data2: ', data.row_data);
-          that.data = data.chart_data;
-          that.row_data = data.row_data;
-        });
-      };
-
-      updateNewData();
-
+    this.dateFormat = api.dateFormat;
+    this.flightDatePopupState = {opened: false};
+    this.flightDatePopup = function() {
+      that.flightDatePopupState.opened = true;
+    };
+    this.purchaseDatePopupState = {opened: false};
+    this.purchaseDatePopup = function() {
+      that.purchaseDatePopupState.opened = true;
+    };
 
     this.flightInfo = {
       user: {},
       flightDate: null,
       purchaseDate: null,
       flightNum: null,
-      Airline: null,
+      Airline: undefined,
       DepartureAirport: null,
       ArrivalAirport: null,
       pricePaid: null,
       purchaseLocation: null
     };
+
+    this.SortOrder = 'price_paid';
+    this.reverseSort = false;
+    this.sorting = [
+      {col: '0', name: 'Airline', sort: 'airline'},
+      {col: '1', name: 'Departure', sort: 'departure'},
+      {col: '2', name: 'Arrival', sort: 'arrival'},
+      {col: '3', name: 'Flight Date', sort: 'flight_date'},
+      {col: '4', name: 'Flight #', sort: 'flight_number'},
+      {col: '5', name: 'Price ($)', sort: 'price_paid'},
+      {col: '6', name: 'Purchase Date', sort: 'purchase_date'},
+      {col: '7', name: 'Purchase Location', sort: 'purchase_location'},
+      {col: '8', name: 'Suspect?', sort: 'suspect'},
+    ];
+
+    this.sort = function(col){
+      console.log(col);
+      that.SortOrder = col.sort;
+      that.reverseSort = !that.reverseSort;
+    };
+
+    var updateNewData = function(){
+      var updateGData = new graphs.flightData2();
+      updateGData = updateGData.$save();
+      updateGData.then(function(data){
+        // console.log(data);
+        console.log('that.data: ', data.chart_data);
+        console.log('that.row_data: ', data.row_data);
+        clearFlightInfo();
+        that.data = data.chart_data;
+        that.row_data = data.row_data;
+        that.tableParams = new NgTableParams({sorting: {Price: 'asc'}}, {dataset: that.row_data});
+      });
+    };
+
+    var clearFlightInfo = function(){
+      that.flightInfo.user = {};
+      that.flightInfo.flightDate = null;
+      that.flightInfo.purchaseDate = null;
+      that.flightInfo.flightNum = null;
+      that.flightInfo.Airline = undefined;
+      that.flightInfo.DepartureAirport = null;
+      that.flightInfo.ArrivalAirport = null;
+      that.flightInfo.pricePaid = null;
+      that.flightInfo.purchaseLocation = null;
+      that.noResultsAirline = false;
+      that.noResultsDepAirport = false;
+      that.noResultsArrAirport = false;
+      // $scope.flightinfoform.$rollbackViewValue();
+      $scope.flightinfoform.$setPristine();
+      $scope.flightinfoform.$setUntouched();
+    };
+
+    this.updateNewData = updateNewData;
+
+    this.clearForm = clearFlightInfo;
+
+    this.limitData = function(flightInfo){
+      // console.log(flightInfo);
+      var searchGData = new graphs.flightData2();
+      searchGData.user_id = null;
+      searchGData.flight_date = flightInfo.flightDate || null;
+      searchGData.purchase_date = flightInfo.purchaseDate || null;
+      searchGData.flight_number = flightInfo.flightNum || null;
+      searchGData.price_paid = flightInfo.pricePaid;
+      searchGData.purchase_location = flightInfo.purchaseLocation || null;
+      searchGData.departure_airport_id = flightInfo.DepartureAirport ? flightInfo.DepartureAirport.id: undefined;
+      searchGData.arrival_airport_id = flightInfo.ArrivalAirport ? flightInfo.ArrivalAirport.id : undefined;
+      searchGData.airline_id = flightInfo.Airline ? flightInfo.Airline.id : undefined;
+      searchGData.suspect = flightInfo.suspect || false;
+      searchGData = searchGData.$save();
+      searchGData.then(function(data){
+        // console.log(data);
+        // console.log('that.data2: ', data.chart_data);
+        // console.log('that.row_data2: ', data.row_data);
+        that.data = data.chart_data;
+        that.row_data = data.row_data;
+      });
+    };
+
+    updateNewData();
+
 
     api.getAirlines.query(function(data){
       that.airlines = data;
@@ -72,7 +126,6 @@ angular.module('flyBuyApp')
     });
 
     this.postFlight = function(flightInfo){
-      console.log(flightInfo);
       if ($scope.flightinfoform.$valid) {
         api.postFlight(flightInfo)
           .then(function(result){
@@ -95,8 +148,8 @@ angular.module('flyBuyApp')
     this.options = {
             chart: {
                 type: 'multiBarChart',
-                height: height - 50,
-                width: width * .75,
+                height: height - 10,
+                width: width * 1,
                 margin : {
                     top: 20,
                     right: 20,
@@ -106,7 +159,7 @@ angular.module('flyBuyApp')
                 showControls: false,
                 clipEdge: false,
                 //staggerLabels: true,
-                duration: 500,
+                duration: 250,
                 stacked: false,
                 groupSpacing: 0.15,
                 noData: "No flights found for search parameters.",
