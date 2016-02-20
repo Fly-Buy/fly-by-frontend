@@ -13,7 +13,7 @@
 
 ##### Demo the site live here
 ```
-https://blistering-heat-2054.firebaseapp.com/
+https://fly-buy.cfapps.io
 ```
 
 ##### To access the working prototype:
