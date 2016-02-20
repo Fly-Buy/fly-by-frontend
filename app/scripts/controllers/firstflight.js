@@ -43,13 +43,13 @@ angular.module('flyBuyApp')
     });
 
     api.flights.query(function(data){
-      console.log(data);
+      // console.log(data);
     });
 
     api.UserInfo.query(function(data){
       var modifyUserInfo = data[0];
       modifyUserInfo.user_image = modifyUserInfo.user_image.substring(0, modifyUserInfo.user_image.length - 5);
-      console.log(modifyUserInfo);
+      // console.log(modifyUserInfo);
       that.userinfo = modifyUserInfo;
     });
 

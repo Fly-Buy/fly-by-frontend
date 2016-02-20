@@ -52,7 +52,6 @@ angular.module('flyBuyApp')
     ];
 
     this.sort = function(col){
-      console.log(col);
       that.SortOrder = col.sort;
       that.reverseSort = !that.reverseSort;
     };
@@ -62,8 +61,8 @@ angular.module('flyBuyApp')
       updateGData = updateGData.$save();
       updateGData.then(function(data){
         // console.log(data);
-        console.log('that.data: ', data.chart_data);
-        console.log('that.row_data: ', data.row_data);
+        // console.log('that.data: ', data.chart_data);
+        // console.log('that.row_data: ', data.row_data);
         clearFlightInfo();
         that.data = data.chart_data;
         that.row_data = data.row_data;
